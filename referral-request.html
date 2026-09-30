@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<head>
+  <title>Request a Referral — SEU Circle</title>
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="referral-request.css">
+</head>
+
+<body>
+
+  <div class="sitenav">
+
+    <div class="brand">
+      <span class="mark">SEU Circle</span>
+    </div>
+
+    <div class="navlinks">
+      <a href="job-detail.html">← Back to Job</a>
+    </div>
+
+  </div>
+
+
+  <section class="refsection">
+
+    <div class="container">
+
+      <div class="eyebrow-line">
+        <div class="rule"></div>
+        <span>REFERRAL REQUEST</span>
+      </div>
+
+      <h1 class="reftitle">
+        Ask Nusrat Jahan for a referral
+      </h1>
+
+
+      <form id="referral-form" novalidate>
+
+        <div class="card target-card">
+
+          <div class="fieldbox">
+            TARGET COMPANY
+          </div>
+
+          <div class="target-info">
+            Therap BD
+          </div>
+
+          <div class="fieldbox">
+            TARGET ALUMNI
+          </div>
+
+          <div class="target-info">
+            Nusrat Jahan — Senior Software Engineer
+          </div>
+        </div>
+
+
+        <div class="fieldbox" >
+          Message <span class="required">*</span>
+        </div>
+
+        <textarea
+          id="message"
+          class="msg-box"
+          required
+          minlength="30"
+          maxlength="500"
+          placeholder="Introduce yourself — who you are, what role you're applying for, and why you'd be a good fit..."
+          oninput="onMessageInput()"></textarea>
+
+        <div id="char-count" class="char-count">
+          0 / 500 (min 30)
+        </div>
+
+        <div id="message-error" class="field-error">
+          Please write at least 30 characters introducing yourself.
+        </div>
+
+
+        <div class="fieldbox cvbox">
+          Attach your CV <span class="required">*</span>
+        </div>
+
+        <label
+          id="upload-box"
+          class="up-box"
+          for="cv-upload">
+
+          <span class="up-icon">📎</span>
+
+          <div class="text-up" id="upload-text">
+            Click to choose a file
+            <span class="note-up">(PDF, up to 5MB)</span>
+          </div>
+
+          <input
+            type="file"
+            id="cv-upload"
+            class="cv-upload"
+            accept=".pdf,.doc,.docx"
+            onchange="onFileChange()">
+
+        </label>
+
+
+        <div id="file-error" class="field-error">
+          Please attach your CV before sending the request.
+        </div>
+
+
+        <button
+          type="submit"
+          class="pill-btn maroon send-btn">
+          Send Referral Request
+        </button>
+
+      </form>
+
+    </div>
+
+  </section>
+
+
+  <script src="script.js"></script>
+  <script src="referral-request.js"></script>
+
+</body>
+
+</html>

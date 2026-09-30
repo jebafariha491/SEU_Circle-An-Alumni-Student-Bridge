@@ -1,0 +1,233 @@
+/* =========================================
+   REFERRAL REQUEST PAGE
+   Navy / Blue Theme
+   ========================================= */
+
+
+/* ---------- Top Navigation ---------- */
+
+.sitenav {
+  background: #17384d;
+  border-color: #254e66;
+}
+
+.sitenav .brand,
+.sitenav .mark {
+  color: #ffffff;
+}
+
+.sitenav .navlinks a {
+  color: #d8e8f0;
+}
+
+.sitenav .navlinks a:hover {
+  color: #ffffff;
+}
+
+
+/* ---------- Page Background ---------- */
+
+.refsection {
+  position: relative;
+  overflow: hidden;
+  padding-top: 40px;
+  background: #f4f8fb;
+  color: #17384d;
+}
+
+
+/* ---------- Background Bubbles ---------- */
+
+.refsection::before,
+.refsection::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.refsection::before {
+  width: 260px;
+  height: 260px;
+  top: 70px;
+  right: -100px;
+  background: rgba(74, 143, 178, 0.08);
+}
+
+.refsection::after {
+  width: 190px;
+  height: 190px;
+  bottom: 80px;
+  left: -75px;
+  background: rgba(47, 111, 145, 0.07);
+}
+
+.refsection .container {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ---------- Page Heading ---------- */
+
+.reftitle {
+  margin-bottom: 24px;
+  font-size: 28px;
+  color: #17384d;
+}
+
+
+/* ---------- Form Labels ---------- */
+
+.fieldbox {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #526b7b;
+}
+
+.required {
+  color: #2f6f91;
+}
+
+
+/* ---------- Referral Target ---------- */
+
+.target-card {
+  margin-bottom: 20px;
+  background: #f7fbfd;
+  border-color: #d3e0e7;
+}
+
+.target-info {
+  padding: 6px 0 14px;
+  font-weight: 600;
+  color: #203f52;
+}
+
+
+/* ---------- Message Box ---------- */
+
+.msg-box {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  background: #ffffff;
+  color: #203f52;
+  border-color: #d3e0e7;
+}
+
+.msg-box::placeholder {
+  color: #8aa0ae;
+}
+
+.msg-box:focus {
+  outline: none;
+  border-color: #4d8aaa;
+  box-shadow: 0 0 0 3px rgba(77, 138, 170, 0.10);
+}
+
+
+/* ---------- Validation ---------- */
+
+.msg-box.invalid,
+.up-box.invalid {
+  border-color: #b83b52;
+}
+
+.field-error {
+  display: none;
+  margin-top: 6px;
+  font-size: 12px;
+  color: #b83b52;
+}
+
+.field-error.show {
+  display: block;
+}
+
+.char-count {
+  margin-top: 4px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  text-align: right;
+  color: #6b8190;
+}
+
+.char-count.over {
+  color: #b83b52;
+}
+
+
+/* ---------- CV Upload ---------- */
+
+.cvbox {
+  margin-top: 20px;
+}
+
+.up-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px;
+  border: 1.5px dashed #9bb7c8;
+  border-radius: 4px;
+  cursor: pointer;
+  background: #ffffff;
+  color: #203f52;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.up-box:hover {
+  border-color: #3f7f9f;
+  background: #f0f7fa;
+}
+
+.up-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  font-size: 20px;
+  background: #e5f1f6;
+}
+
+.text-up {
+  font-size: 14px;
+  color: #29495b;
+}
+
+.note-up {
+  color: #7b919e;
+}
+
+.cv-upload {
+  display: none;
+}
+
+
+/* ---------- Send Button ---------- */
+
+.send-btn {
+  width: 100%;
+  margin-top: 28px;
+}
+
+.pill-btn.send-btn {
+  border-color: #17384d;
+  background: linear-gradient(135deg, #17384d, #2f6f91);
+  color: #ffffff;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.pill-btn.send-btn:hover {
+  border-color: #214d67;
+  background: linear-gradient(135deg, #214d67, #3f82a3);
+}

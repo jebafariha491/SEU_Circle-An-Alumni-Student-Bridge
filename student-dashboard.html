@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<head> 
+  <title>Student Dashboard — SEU Circle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="dashboardstyle.css">
+</head>
+<body>
+  <div class="dashboard-page">
+    <header class="dashboard-topbar">
+      <div class="dashboard-topbar-inner">
+        <a href="student-dashboard.html" class="dashboard-brand" aria-label="SEU Circle Dashboard">
+          <span class="dashboard-brand-mark">SEU</span>
+          <span class="dashboard-brand-copy">
+            <strong>SEU Circle</strong>
+            <small>A student Alumni Bridge</small>
+          </span>
+        </a>
+
+        <nav class="dashboard-nav" >
+          <a class="active" href="student-dashboard.html">Dashboard</a>
+          <a href="jobs.html">Jobs</a>
+          <a href="directory.html">Alumni</a>
+          
+        </nav>
+
+        <div class="dashboard-actions">
+          <div >
+            <button class="icon-btn" id="notification-btn" type="button" >
+              <svg viewBox="0 0 24 24" >
+                <path d="M18 9a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"></path>
+              </svg>
+              <span class="notification-count">3</span>
+            </button>
+
+            <div class="notification-panel" id="notification-panel">
+              <div class="dropdown-head">
+                <div>
+                  <span class="tiny-label">RECENT ACTIVITY</span>
+                  <h3>Notifications</h3>
+                </div>                
+              </div>
+
+              <div class="notification-list">
+                <div class="notification-item ">
+                  <span class="notification-dot"></span>
+                  <div><strong>Application shortlisted</strong><p>Backend Intern at Therap BD moved to <b>Shortlisted</b>.</p><small>2 hours ago</small></div>
+                </div>
+                <div class="notification-item ">
+                  <span class="notification-dot"></span>
+                  <div><strong>Referral accepted</strong><p>Rakibul Islam accepted your bKash referral request.</p><small>1 day ago</small></div>
+                </div>
+                <div class="notification-item">
+                  <span class="notification-dot"></span>
+                  <div><strong>Job saved</strong><p>Data Analyst Intern at Chaldal is in your saved jobs.</p><small>2 days ago</small></div>
+                </div>
+                <div class="notification-item">
+                  <span class="notification-dot"></span>
+                  <div><strong>Referral requested</strong><p>You sent a referral request to Nusrat Jahan for Therap BD.</p><small>3 days ago</small></div>
+                </div>
+              </div>
+
+              <button  class="notification-footer-btn" type="button">View activity history →</button>
+            </div>
+          </div>
+
+          <div>
+            <button class="profile-trigger" id="profile-trigger" type="button" >
+              <img id="top-avatar" src="" alt="Student profile">
+              <span id="top-name">Student</span>
+              <svg viewBox="0 0 20 20" ><path d="m5 7 5 5 5-5"></path></svg>
+            </button>
+
+            <div class="profile-dropdown" id="profile-menu" role="menu">
+              <div class="profile-dropdown-head">
+                <span>STUDENT ACCOUNT</span>
+                <strong id="menu-name">Student</strong>
+              </div>
+              <a id="my-profile-link" href="student-profile.html" role="menuitem">My Profile</a>
+              <button id="settings-link" type="button" role="menuitem">Settings</button>
+              <button id="logout-link" type="button" role="menuitem">Logout</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <div class="dashboard-container">
+
+        <div class="welcome-hero">
+          <div class="welcome-copy">
+            <span class="eyebrow">STUDENT DASHBOARD · SPRING 2026</span>
+            <h1 id="greeting">Welcome back</h1>
+            <p>Your applications, alumni connections and next opportunities — all in one place.</p>
+          </div>
+        </div>
+
+        <section class="profile-strip">
+          <div class="profile-strip-copy">
+            <h2>Keep your profile ready for referrals</h2>
+            <p>Add your strongest skills, projects and experience so alumni have enough context to respond to your requests.</p>
+            <div class="profile-strip-progress">
+              <div class="profile-strip-track"><span id="nudge-fill"></span></div>
+              <strong id="nudge-pct">—</strong>
+            </div>
+          </div>
+          <a href="student-profile.html" class="profile-strip-btn">Update Profile →</a>
+        </section>
+
+        <section class="dashboard-section">
+          <div class="section-heading">
+            <div>        
+              <div><h2>Job Applications</h2></div>
+            </div>
+            <a href="jobs.html" class="section-link">Browse jobs →</a>
+          </div>
+
+          <div class="journey-summary">
+            <div class="summary-stat "><strong>04</strong><span>Applied</span></div>
+            <div class="summary-stat"><strong>02</strong><span>Shortlisted</span></div>
+            <div class="summary-stat"><strong>01</strong><span>Appointed</span></div>
+            <div class="summary-stat"><strong>01</strong><span>Canceled</span></div>
+          </div>
+
+          <div class="detail-panel applications-detail">
+            <div class="detail-panel-head">
+              <div><h3>Recent job activity</h3></div>
+              <span class="detail-caption">LATEST UPDATE</span>
+            </div>
+            <div class="application-list">
+              <div class="application-row"><div class="company-badge ">TB</div><div class="application-copy"><strong>Backend Intern</strong><span>Therap BD · Sep 02</span></div><span class="status-pill gold">Shortlisted</span></div>
+              <div class="application-row"><div class="company-badge ">PT</div><div class="application-copy"><strong>Frontend Intern</strong><span>Pathao · Aug 29</span></div><span class="status-pill blue">Applied</span></div>
+              <div class="application-row"><div class="company-badge ">BK</div><div class="application-copy"><strong>SWE, New Grad</strong><span>bKash · Aug 20</span></div><span class="status-pill plum">Interviewing</span></div>
+              <div class="application-row"><div class="company-badge ">CH</div><div class="application-copy"><strong>Data Analyst Intern</strong><span>Chaldal · Jul 30</span></div><span class="status-pill green">Appointed</span></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="dashboard-section referral-section">
+          <div class="section-heading">
+            <div>
+              <div><h2>Requested Referrals</h2></div>
+            </div>
+            <a href="alumni-directory.html" class="section-link">Find alumni →</a>
+          </div>
+
+          <div class="journey-summary">
+            <div class="summary-stat"><strong>05</strong><span>Requested</span></div>
+            <div class="summary-stat "><strong>02</strong><span>Shortlisted</span></div>
+            <div class="summary-stat"><strong>01</strong><span>Accepted</span></div>
+            <div class="summary-stat"><strong>01</strong><span>Canceled</span></div>
+          </div>
+
+          <div class="referral-grid">
+            <div class="referral-card"><div class="referral-avatar">NJ</div><div><span>THERAP BD</span><strong>Nusrat Jahan</strong><small>Referral request</small></div><em class="referral-status pending">Requested</em></div>
+            <div class="referral-card"><div class="referral-avatar gold">RI</div><div><span>BKASH</span><strong>Rakibul Islam</strong><small>Referral request</small></div><em class="referral-status accepted">Accepted</em></div>
+          </div>
+        </section>
+
+        <section class="split-section">
+          <div class="content-card ">
+            <div class="card-heading"><div><span class="section-kicker">UPCOMING EVENTS</span><h2>Don’t miss what’s next</h2></div><button id="events-btn" class="mini-link" type="button">View all →</button></div>
+            
+              <div class="event-row "><div class="event-date"><span>SEP</span><strong>28</strong></div><div class="event-copy"><strong>Career &amp; Internship Fair</strong><span>10:00 AM · On campus</span><small>SEU Auditorium</small></div></div>
+              <div class="event-row"><div class="event-date"><span>OCT</span><strong>02</strong></div><div class="event-copy"><strong>CV Writing Workshop</strong><span>3:00 PM · Online</span><small>Career Development Center</small></div></div>
+              <div class="event-row "><div class="event-date"><span>OCT</span><strong>08</strong></div><div class="event-copy"><strong>Alumni Networking Night</strong><span>6:00 PM · On campus</span><small>SEU Main Campus</small></div></div>
+            
+          </div>
+
+          <article class="content-card ">
+            <div class="card-heading"><div><span class="section-kicker">RECOMMENDED JOBS</span><h2>Picked for you</h2></div><a href="jobs.html" class="mini-link">Explore all →</a></div>
+            <div class="recommended-list">
+              <article class="recommended-row "><div class="job-mark">TC</div><div class="job-copy"><strong>Software Engineering Intern</strong><span>TechCore Ltd. · Dhaka</span></div></article>
+              <article class="recommended-row "><div class="job-mark">DX</div><div class="job-copy"><strong>Frontend Developer Intern</strong><span>Digital X · Remote</span></div></article>
+              <article class="recommended-row "><div class="job-mark">NW</div><div class="job-copy"><strong>Junior Web Developer</strong><span>NextWave Studio · Dhaka</span></div></article>
+            </div>
+          </article>
+        </section>
+
+        
+      </div>
+    </main>
+
+    <footer class="dashboard-footer"><span> SEU Circle</span></footer>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="dashboard.js"></script>
+</body>
+</html>

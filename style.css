@@ -1,0 +1,338 @@
+:root{
+  --ink:#1B1F1D;
+  --paper:#F1ECE1;
+  --paper-dim:#E8E1D2;
+  --brass:#A67C3D;
+  --brass-dim:#C9A468;
+  --maroon:#6E2436;
+  --maroon-dim:#9C4B5E;
+  --slate:#4B5A60;
+  --slate-dim:#7C8B90;
+  --line: rgba(27,31,29,0.14);
+  --green:#3F6B44;
+  --font-display: 'Fraunces', serif;
+  --font-body: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+}
+
+*{ 
+  box-sizing:border-box; 
+}
+html,body{ 
+  margin:0; 
+  padding:0; 
+}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--font-body);
+  line-height:1.5;
+}
+img{ 
+  max-width:100%; 
+  display:block; 
+}
+a{ 
+  color:inherit; 
+  text-decoration:none; 
+}
+button{ 
+  font-family:inherit; 
+  cursor:pointer; 
+}
+
+/* ---------- site nav (same on every page) ---------- */
+.sitenav{
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between;
+  padding:22px 48px; 
+  border-bottom:1px solid var(--line);
+}
+.brand{ 
+  display:flex; 
+  align-items:baseline; 
+  gap:10px;
+ }
+.brand .mark{ 
+  font-family:var(--font-display); 
+  font-weight:700; 
+  font-size:22px; 
+  letter-spacing:0.2px; 
+}
+.brand .tag{ 
+  font-family:var(--font-mono); 
+  font-size:11px; 
+  color:var(--slate); 
+  border:1px solid var(--line); 
+  padding:3px 8px; 
+  border-radius:12px; 
+}
+.navlinks{ 
+  display:flex; 
+  gap:28px; 
+  font-size:14px; 
+  align-items:center; 
+}
+.navlinks a{ 
+  color:var(--slate); 
+}
+.navlinks a.current{ 
+  color:var(--ink); 
+  font-weight:600; 
+}
+
+.pill-btn{
+  font-family:var(--font-body); font-weight:600; font-size:14px;
+  padding:10px 20px; border-radius:3px; border:1.5px solid var(--ink);
+  background:var(--ink); color:var(--paper);
+}
+.pill-btn.ghost{ background:transparent; color:var(--ink); }
+.pill-btn.maroon{ background:var(--maroon); border-color:var(--maroon); color:var(--paper); }
+.pill-btn:disabled{ opacity:0.55; cursor:default; }
+
+section{ padding:56px 48px; }
+.container{ 
+  max-width:1180px; 
+  margin:0 auto; 
+}
+
+h1,h2,h3{ 
+  font-family:var(--font-display);
+  margin:0; font-weight:600; }
+
+.eyebrow-line{ 
+  display:flex; 
+  align-items:center; 
+  gap:12px; 
+  margin-top: 10px;
+  margin-bottom:14px;
+ }
+.eyebrow-line .rule{ 
+  width:36px; 
+  height:2px; 
+  background:var(--brass); 
+}
+.eyebrow-line span{ 
+  font-family:var(--font-mono); 
+  font-size:12px; 
+  color:var(--slate);
+ }
+
+.badge{
+  font-family:var(--font-mono); font-size:11px; padding:3px 9px; border-radius:3px;
+  display:inline-flex; align-items:center; gap:5px;
+}
+.badge.open{ 
+  background:rgba(63,107,68,0.12); 
+  color:var(--green);
+ }
+.badge.pending{ 
+  background:rgba(166,124,61,0.15); 
+  color:#8A5F26; 
+}
+.badge.declined{ 
+  background:rgba(110,36,54,0.1); 
+  color:var(--maroon); 
+}
+.badge.neutral{ 
+  background:var(--paper-dim); 
+  color:var(--slate); 
+  border:1px solid var(--line); }
+
+.card{ 
+  background:#fff; 
+  border:1px solid var(--line); 
+  border-radius:4px; 
+  padding:22px; 
+}
+
+.stat-mono{ 
+  font-family:var(--font-mono); 
+  font-size:28px; 
+  }
+.stat-label{ 
+  font-size:12px; 
+  color:var(--slate); 
+}
+
+footer{
+  padding:36px 48px; border-top:1px solid var(--line);
+  margin-top:40px;
+  display:flex; 
+  justify-content:space-between; 
+  font-size:13px; 
+  color:var(--slate);
+}
+
+/* ---------- form fields (search bars, referral form, profile edit) ---------- */
+input[type="text"], input[type="email"], input[type="password"], textarea, select{
+  font-family:inherit; border:1px solid var(--line); border-radius:3px; padding:10px;
+}
+
+/* ---------- profile completeness bar ---------- */
+.completion-track{
+  width:100%; height:8px; border-radius:4px; background:var(--paper-dim); overflow:hidden;
+}
+.completion-fill{
+  height:100%; background:var(--brass); border-radius:4px; transition:width 0.3s ease;
+}
+
+/* ================================================
+   APP SHELL / SIDEBAR LAYOUT
+   (previously missing — HTML referenced these classes
+   but no rules existed for them, so the page rendered
+   unstyled/stacked instead of a sidebar layout)
+   ================================================ */
+.app-shell{
+  display: flex;
+  min-height:100vh;
+  align-items:stretch;
+}
+
+.sidebar{
+  width:240px;
+  flex-shrink:0;
+  background:#fff;
+  border-right:1px solid var(--line);
+  padding:28px 22px;
+  display:flex;
+  flex-direction:column;
+}
+
+.sidebar-logo{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  margin-bottom:36px;
+}
+.sidebar-logo .mark{
+  font-family:var(--font-display);
+  font-weight:700;
+  font-size:19px;
+}
+.sidebar-logo .tag{
+  font-family:var(--font-mono);
+  font-size:10.5px;
+  color:var(--slate);
+  border:1px solid var(--line);
+  padding:3px 8px;
+  border-radius:12px;
+  align-self:flex-start;
+}
+
+.sidebar-nav{
+  display:flex;
+  flex-direction:column;
+  gap:2px;
+}
+.sidebar-nav a{
+  padding:10px 12px;
+  border-radius:4px;
+  font-size:14px;
+  color:var(--slate);
+  transition:background 0.15s ease, color 0.15s ease;
+}
+.sidebar-nav a:hover{
+  background:var(--paper-dim);
+  color:var(--ink);
+}
+.sidebar-nav a.current{
+  background:var(--maroon);
+  color:#fff;
+  font-weight:600;
+}
+
+.sidebar-profile{
+  margin-top:auto;
+  padding-top:20px;
+  /*border-top:1px solid var(--line);*/
+}
+.sidebar-avatar-wrap{
+  position:relative;
+  width:44px;
+  margin-bottom:10px;
+}
+.avatar-sm{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  object-fit:cover;
+  display:block;
+}
+.change_photo_btn_sm{
+  position:absolute;
+  bottom:-3px;
+  right:-3px;
+  width:19px;
+  height:19px;
+  border-radius:50%;
+  background:var(--brass);
+  color:#fff;
+  border:2px solid #fff;
+  font-size:10px;
+  line-height:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:0;
+}
+.change_photo_btn_sm:hover{
+  background:var(--maroon);
+}
+.sidebar-profile-name{
+  font-weight:600;
+  font-size:14px;
+}
+.sidebar-profile-id{
+  font-family:var(--font-mono);
+  font-size:11px;
+  color:var(--slate);
+  margin-top:2px;
+}
+.sidebar-profile-links{
+  margin-top:8px;
+  font-size:12px;
+  display:flex;
+  gap:6px;
+  color:var(--slate);
+}
+.sidebar-profile-links a:hover{
+  color:var(--maroon);
+}
+
+.main-content{
+  flex:1;
+  min-width:0;
+}
+
+/* ---------- visual polish: depth, motion, accent color ---------- */
+.card, .list_item_card{
+  box-shadow:0 2px 8px rgba(27,31,29,0.06);
+  transition:box-shadow 0.2s ease;
+}
+.card:hover, .list_item_card:hover{
+  box-shadow:0 4px 16px rgba(27,31,29,0.10);
+}
+
+.pill-btn{
+  transition:transform 0.15s ease, box-shadow 0.15s ease;
+}
+.pill-btn:hover:not(:disabled){
+  transform:translateY(-1px);
+  box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.eyebrow-line span{
+  color:#8A5F26;
+  font-weight:600;
+  letter-spacing:0.3px;
+}
+
+h1, h2, h3{
+  font-family:var(--font-display);
+}
+.list_item_title{
+  font-family:var(--font-display);
+  font-size:16px;
+}
