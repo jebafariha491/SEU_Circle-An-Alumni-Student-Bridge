@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+<title>Post a New Job — SEU Circle</title>
+<link rel="stylesheet" href="css/post-job.css">
+</head>
+<body>
+
+<div class="pj-wrap">  
+  <div class="pj-card">
+    <h1>Post a New Job</h1>
+    <p class="pj-subtitle">Share an opportunity with SEU students. </p>
+
+
+      <div class="pj-field">
+        <label>Job Title </label>
+        <input type="text" id="pjTitle" placeholder="e.g. Frontend Developer Intern">
+      </div>
+
+      <div class="pj-field">
+        <label>Company </label>
+        <input type="text" id="pjCompany" placeholder="e.g. Optimizely BD">
+      </div>
+   
+      <div class="pj-field">
+        <label>Location </label>
+        <input type="text" id="pjLocation" placeholder="e.g. Dhaka / Remote">
+      </div>
+
+      <div class="pj-field">
+        <label>Job Type *</label>
+        <div class="pj-radio-group">
+          <label class="pj-radio-opt">
+            <input type="radio" name="jobType" value="Internship" checked> Internship
+          </label>
+
+          <label class="pj-radio-opt">
+            <input type="radio" name="jobType" value="Full-time"> Full-time
+          </label>
+
+          <label class="pj-radio-opt">
+            <input type="radio" name="jobType" value="Part-time"> Part-time
+          </label>
+        </div>
+        
+      </div>
+
+      <div class="pj-field">
+        <label>Job Description </label>
+        <textarea id="pjDescription" placeholder="Describe the role, responsibilities and required skills..."></textarea>
+      </div>
+
+      <div class="pj-checkbox-row">
+        <input type="checkbox" id="pjConfirm">
+        <label for="pjConfirm">I confirm this listing is accurate and I'm authorized to post it</label>
+      </div>
+
+     <button class="pj-submit-btn" id="pjSubmitBtn" onclick="submitJobPost(this)">Post This Job</button>
+     <button class="pj-back-btn" onclick="goToDashboard()">← Back to Dashboard</button>
+  </div>
+
+
+</div> 
+<script src="js/post-job.js"></script>
+
+</body>
+</html>

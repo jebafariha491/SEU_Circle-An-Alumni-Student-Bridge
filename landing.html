@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<head>
+  <title>SEU Circle — An Alumni-Student Bridge</title>
+  <link rel="stylesheet" href="css/landing.css">
+</head>
+
+<body>
+
+  <nav>
+    <div class="brand">
+      <h2><b>SEU Circle</b></h2>
+      <span class="tagline-chip">An Alumni-Student Bridge</span>
+    </div>
+  </nav>
+
+
+<div class="landing-split">
+
+  <!-- LEFT -->
+  <div class="landing-left">
+    <h1>Connect with the seniors who once walked your path.</h1>
+    <p class="lead"> SEU Circle connects current students with verified alumni for referrals, mentorship & real job opportunities — no more relying on luck or WhatsApp groups. </p>
+
+    <div class="mini-stats">
+      <div>
+        <div class="num">1,240+</div>
+        <div class="lbl">Alumni</div>
+      </div>
+
+      <div>
+        <div class="num">340+</div>
+        <div class="lbl">Companies</div>
+      </div>
+
+      <div>
+        <div class="num">86</div>
+        <div class="lbl">Active Jobs</div>
+      </div>
+
+      <div>
+        <div class="num">212</div>
+        <div class="lbl">Placed</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- RIGHT -->
+  <div class="landing-right">
+
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" id="tabLogin" onclick="switchAuthTab('login')"> Log In </button>
+      <button type="button" class="auth-tab" id="tabSignup" onclick="switchAuthTab('signup')"> Sign Up </button>
+    </div>
+
+
+    <div class="role-toggle">
+      <button type="button" class="role-opt selected" id="roleStudent" onclick="selectRole('student')"> 🎓 Student </button>
+      <button type="button" class="role-opt" id="roleAlumni" onclick="selectRole('alumni')"> 💼 Alumni </button>
+    </div>
+   
+
+    <div id="loginFields">
+      <div class="field">
+        <label for="loginEmail">Email </label>
+        <input id="loginEmail" type="email" placeholder="id@seu.edu.bd">
+      </div>
+
+      <div class="field">
+        <label for="loginPassword"> Password</label>
+        <input id="loginPassword" type="password" placeholder="••••••••">
+      </div>
+    </div>
+
+
+    <div id="signupFields" class="signup-fields">
+      <div class="field-row">
+        <div class="field">
+          <label for="signupName"> Full Name </label>
+          <input id="signupName" type="text" placeholder="Your name">
+        </div>
+
+
+        <div class="field">
+          <label for="signupBatch">Batch</label>
+          <input id="signupBatch" type="text" placeholder="e.g. 48">
+        </div>
+      </div>
+
+
+      <div class="field-row">
+        <div class="field">
+          <label for="signupDepartment">Department</label>
+          <input id="signupDepartment" type="text" placeholder="e.g. CSE">
+        </div>
+
+
+        <div class="field" id="signupExtraField">
+          <label for="signupExtraInput"> Student ID</label>
+          <input id="signupExtraInput" type="text" placeholder="e.g. 2019xxxxxx">
+        </div>
+      </div>
+
+
+      <div class="field">
+        <label for="signupEmail">Email</label>
+        <input id="signupEmail" type="email" placeholder="id@seu.edu.bd">
+      </div>
+
+
+      <div class="field">
+        <label for="signupPassword"> Password </label>
+        <input id="signupPassword" type="password" placeholder="Create a password" >
+      </div>
+    </div>
+
+    <button type="button" class="btn-primary auth-submit" onclick="handleAuthSubmit()"> Continue as <span id="submitRoleLabel">Student</span> </button>
+  </div>
+
+</div>
+
+<footer> SEU Circle · An Alumni-Student Bridge </footer>
+
+<script src="js/landing.js"></script>
+
+</body>
+</html>

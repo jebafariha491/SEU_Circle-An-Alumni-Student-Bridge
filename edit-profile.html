@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<head>
+  <title>Edit Profile — SEU Circle</title>
+  <link rel="stylesheet" href="css/edit-profile.css">
+</head>
+
+<body>
+  <!-- NAVBAR  -->
+  <nav class="navbar">
+    <div class="brand"> <h2>SEU Circle</h2> </div>
+    <div class="nav-links">
+      <button onclick="location.href='alumni-dashboard.html'"> Dashboard </button>
+      <button onclick="location.href='alumni-profile.html'"> My Profile </button>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main class="edit-container">
+    <div class="page-header">
+      <h1>Edit Profile</h1>
+      <p> Update your information to keep your alumni profile accurate and up to date. </p>
+    </div>
+
+    <!-- FORM -->
+
+    <form id="profileForm">
+      <section class="edit-card">
+        <div class="section-heading">
+          <div>
+            <h2>Basic Information</h2>
+            <p> Your name and professional identity. </p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="fullName"> Full Name </label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="headline"> Professional Headline </label>
+            <input type="text" id="headline" placeholder="e.g. Frontend Developer">
+          </div>
+
+          <div class="form-group">
+            <label for="location"> Location</label>
+            <input type="text" id="location" placeholder="City, Country">
+          </div>
+
+          <div class="form-group">
+            <label for="email"> Email </label>
+            <input type="email" id="email" placeholder="your@email.com">
+          </div>
+
+          <div class="form-group">
+            <label for="phone"> Phone </label>
+            <input type="tel" id="phone" placeholder="+880...">
+          </div>
+        </div>
+      </section>
+
+
+
+      <section class="edit-card">
+        <div class="section-heading">
+          <div>
+            <h2>About</h2>
+            <p> Introduce yourself to the alumni community.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="about"> About Me </label>
+          <textarea id="about" rows="6" placeholder="Write something about yourself..."></textarea>
+        </div>
+      </section>
+
+
+      <section class="edit-card">
+        <div class="section-heading">
+          <div>
+            <h2>Education</h2>
+            <p> Add your academic background. </p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="university"> University </label>
+            <input type="text" id="university" placeholder="University name">
+          </div>
+
+          <div class="form-group">
+            <label for="department"> Department </label>
+            <input type="text" id="department" placeholder="Your department">
+          </div>
+
+          <div class="form-group">
+            <label for="degree">Degree</label>
+            <input type="text" id="degree" placeholder="e.g. B.Sc. in CSE">
+          </div>
+
+          <div class="form-group">
+            <label for="graduation"> Graduation Year</label>
+            <input type="text" id="graduation" placeholder="2025">
+          </div>
+        </div>
+      </section>
+
+
+      <section class="edit-card">
+        <div class="section-heading">
+          <div>
+            <h2>Current Career</h2>
+            <p> Your current professional position.</p>
+          </div>
+        </div>
+
+        <div class="form-grid">
+          <div class="form-group">
+            <label for="company">Company</label>
+            <input type="text" id="company" placeholder="Company name">
+          </div>
+
+          <div class="form-group">
+            <label for="designation">Designation</label>
+            <input type="text" id="designation" placeholder="e.g. Frontend Developer">
+          </div>
+        
+          <div class="form-group">
+            <label for="careerStart">Started</label>
+            <input type="text" id="careerStart" placeholder="2025">
+          </div>
+        </div>
+      </section>
+
+
+      <section class="edit-card">
+        <div class="section-heading">
+         <div>
+            <h2>Skills</h2>
+            <p>Add your technical and professional skills.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="skills"> Skills </label>
+          <input type="text" id="skills" placeholder="HTML, CSS, JavaScript, React" >
+          <span class="helper-text"> Separate each skill with a comma.</span>
+        </div>
+      </section>
+
+
+      <section class="edit-card">
+        <div class="section-heading">
+          <div>
+            <h2>Interests</h2>
+            <p> Add areas you are interested in.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="interests">Interests</label>
+          <input type="text" id="interests" placeholder="Web Development, UI/UX, AI">
+          <span class="helper-text"> Separate each interest with a comma. </span>
+        </div>
+      </section>
+
+
+      <section class="edit-card">
+        <div class="section-heading">
+          <div>
+            <h2>Professional Links</h2>
+            <p>Let people connect with you professionally.</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="linkedin">LinkedIn </label>
+          <input type="url" id="linkedin" placeholder="https://linkedin.com/in/yourname">
+        </div>
+
+        <div class="form-group">
+          <label for="github"> GitHub</label>
+          <input type="url"id="github" placeholder="https://github.com/yourname">
+        </div>
+      </section>
+
+
+      <div class="form-actions">
+        <button type="button" class="cancel-btn" onclick="location.href='alumni-profile.html'" > Cancel </button>
+        <button type="submit" class="save-btn"> Save Changes </button>
+      </div>
+
+    </form>
+  </main>
+
+  <footer>SEU Circle · An Alumni-Student Bridge </footer>
+
+  <script src="js/edit-profile.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<head>
+  <title>Alumni Directory — SEU Circle</title>
+  <link rel="stylesheet" href="css/directory.css">
+</head>
+
+<body>
+  <!--  NAVBAR  -->
+  <nav class="navbar">
+    <div class="brand"> SEU Circle </div>
+    <div class="nav-links">
+      <button class="navbtn" onclick="location.href='alumni-dashboard.html'"> Dashboard </button>
+      <button class="navbtn active"> Alumni Directory </button>
+    </div>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="page-head">
+    <div>
+      <h1>Alumni Directory</h1>
+      <p class="page-description">Connect with alumni, explore their careers and build professional relationships.</p>
+    </div>
+
+    <div class="result-count">
+      <span id="resultCount">8</span> alumni
+    </div>
+  </header>
+
+  <!-- MAIN -->
+  <main class="container">
+    <div class="browse-layout">
+
+      <aside class="filter-panel">
+        <div class="filter-header">
+          <div>
+            <h3>Filters</h3>
+            <p>Refine your search</p>
+          </div>
+          <button class="clear-btn" onclick="clearFilters()">Clear</button>
+        </div>
+
+        <div class="search-wrapper">
+          <span class="search-icon">⌕</span>
+          <input class="search-bar" type="text" id="searchInput" placeholder="Search alumni..." oninput="applyFilters()">
+        </div>
+
+        <!-- DEPARTMENT -->
+        <div class="filter-group">
+          <h4>Department</h4>
+          <label class="filter-option">
+            <input type="checkbox" class="filter-dept" value="CSE" onchange="applyFilters()" > <span>CSE</span>
+          </label>
+
+          <label class="filter-option">
+            <input type="checkbox" class="filter-dept" value="EEE" onchange="applyFilters()" > <span>EEE</span>
+          </label>
+
+          <label class="filter-option">
+            <input type="checkbox" class="filter-dept" value="BBA" onchange="applyFilters()" > <span>BBA</span>
+          </label>
+        </div>
+
+        <!-- BATCH -->
+        <div class="filter-group">
+          <h4>Batch</h4>
+          <input class="batch-input" type="text" id="batchInput" placeholder="e.g. 48" oninput="applyFilters()" >
+        </div>
+
+        <!-- AVAILABILITY -->
+        <div class="filter-group">
+          <h4>Availability</h4>
+          <label class="filter-option">
+            <input type="checkbox" id="filterReferral" onchange="applyFilters()" >
+            <span>Open to Referrals</span>
+          </label>
+
+          <label class="filter-option">
+            <input type="checkbox" id="filterMentor" onchange="applyFilters()">
+            <span>Open to Mentoring</span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- ALUMNI GRID -->
+      <section class="directory-content">
+        <div class="directory-top">
+          <div>
+            <h2>Browse Alumni</h2>
+            <p>Find people from the SEU community.</p>
+          </div>
+        </div>
+
+
+        <div class="card-grid" id="alumniGrid">
+
+          <!--  CARD 1  -->
+          <article
+            class="alumni-card"
+            data-dept="CSE"
+            data-batch="48"
+            data-referral="yes"
+            data-mentor="no"
+            onclick="location.href='job-details.html'" >
+
+            <div class="card-top">
+              <div class="photo">MR</div>
+              <span class="profile-arrow">↗</span>
+            </div>
+            <h3>Maliha Rahman</h3>
+            <p class="role"> Frontend Developer</p>
+            <p class="company">Optimizely</p>
+
+            <div class="meta">
+              <span>Batch 48</span>
+              <span>•</span>
+              <span>CSE</span>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge referral"> Open to Referrals</span>
+            </div>
+
+          </article>
+
+          <!--  CARD 2  -->
+          <article
+            class="alumni-card"
+            data-dept="BBA"
+            data-batch="45"
+            data-referral="yes"
+            data-mentor="no">
+
+            <div class="card-top">
+              <div class="photo">TH</div>
+              <span class="profile-arrow">↗</span>
+            </div>
+            <h3>Tanvir Hasan</h3>
+            <p class="role"> Product Manager</p>
+            <p class="company">bKash</p>
+
+            <div class="meta">
+              <span>Batch 45</span>
+              <span>•</span>
+              <span>BBA</span>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge referral">Open to Referrals </span>
+            </div>
+
+          </article>
+
+          <!--  CARD 3  -->
+          <article
+            class="alumni-card"
+            data-dept="CSE"
+            data-batch="47"
+            data-referral="yes"
+            data-mentor="no">
+
+            <div class="card-top">
+              <div class="photo">SA</div>
+              <span class="profile-arrow">↗</span>
+            </div>
+            <h3>Shamima Akter</h3>
+            <p class="role">Data Scientist</p>
+            <p class="company">Pathao</p>
+
+            <div class="meta">
+              <span>Batch 47</span>
+              <span>•</span>
+              <span>CSE</span>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge referral">Open to Referrals</span>
+            </div>
+
+          </article>
+
+          <!--  CARD 4  -->
+          <article
+            class="alumni-card"
+            data-dept="EEE"
+            data-batch="46"
+            data-referral="yes"
+            data-mentor="no">
+
+            <div class="card-top">
+              <div class="photo">OC</div>
+              <span class="profile-arrow">↗</span>
+            </div>
+            <h3>Ovik Chowdhury</h3>
+            <p class="role">IoT Developer</p>
+            <p class="company">Technology Professional</p>
+
+            <div class="meta">
+              <span>Batch 46</span>
+              <span>•</span>
+              <span>EEE</span>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge referral">Open to Referrals</span>
+            </div>
+
+          </article>
+
+          <!--  CARD 5  -->
+          <article
+            class="alumni-card"
+            data-dept="EEE"
+            data-batch="44"
+            data-referral="no"
+            data-mentor="yes">
+
+            <div class="card-top">
+              <div class="photo">IR</div>
+              <span class="profile-arrow">↗</span>
+            </div>
+            <h3>Ishani Rahman</h3>
+            <p class="role">Power Systems Engineer</p>
+            <p class="company">Engineering Professional</p>
+
+            <div class="meta">
+              <span>Batch 44</span>
+              <span>•</span>
+              <span>EEE</span>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge mentoring">Open to Mentoring</span>
+            </div>
+
+          </article>
+
+          <!--  CARD 6  -->
+          <article
+            class="alumni-card"
+            data-dept="CSE"
+            data-batch="50"
+            data-referral="yes"
+            data-mentor="no">
+
+            <div class="card-top">
+              <div class="photo">AS</div>
+              <span class="profile-arrow">↗</span>
+            </div>
+            <h3>Aurora Sheikh</h3>
+            <p class="role">Data Scientist</p>
+            <p class="company">FoodBank</p>
+
+            <div class="meta">
+              <span>Batch 50</span>
+              <span>•</span>
+              <span>CSE</span>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge referral">Open to Referrals</span>
+            </div>
+
+          </article>
+
+          <!-- CARD 7 -->
+          <article
+            class="alumni-card"
+            data-dept="BBA"
+            data-batch="44"
+            data-referral="no"
+            data-mentor="yes">
+
+            <div class="card-top">
+              <div class="photo">AC</div>
+              <span class="profile-arrow">↗</span>
+            </div>
+            <h3>Ahnaf Chowdhury</h3>
+            <p class="role">Accountant</p>
+            <p class="company">Arong</p>
+
+            <div class="meta">
+              <span>Batch 44</span>
+              <span>•</span>
+              <span>BBA</span>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge mentoring">Open to Mentoring</span>
+            </div>
+
+          </article>
+
+          <!-- CARD 8 -->
+          <article
+            class="alumni-card"
+            data-dept="CSE"
+            data-batch="49"
+            data-referral="yes"
+            data-mentor="no">
+
+            <div class="card-top">
+              <div class="photo">AH</div>
+              <span class="profile-arrow">↗</span>
+            </div>
+            <h3>Ayra Hossain</h3>
+            <p class="role">Software Developer</p>
+            <p class="company">Technology Professional</p>
+
+            <div class="meta">
+              <span>Batch 49</span>
+              <span>•</span>
+              <span>CSE</span>
+            </div>
+
+            <div class="card-footer">
+              <span class="badge referral">Open to Referrals</span>
+            </div>
+
+          </article>
+
+        </div>
+
+        <!-- EMPTY STATE -->
+        <div class="empty-state" id="emptyState">
+          <div class="empty-icon">⌕</div>
+          <h3>No alumni found</h3>
+          <p>Try changing your search or filter options.</p>
+          <button onclick="clearFilters()">Clear Filters</button>
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <footer>SEU Circle — An Alumni-Student Bridge</footer>
+
+
+  <script src="js/directory.js"></script>
+
+</body>
+</html>

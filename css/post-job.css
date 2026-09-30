@@ -1,0 +1,124 @@
+:root{
+  --ink:#1C1B19; --paper:#F6F3EC; --brass:#B08D3E; --maroon:#7A2E2E;
+  --slate:#5B6570; --paper-dim:#EDE8DC; --line:#DCD5C4; --white:#FFFFFF;
+  --green:#3E6B3A; --green-bg:#EAF2E9; --amber:#9C6B1B; --amber-bg:#F5EBD6;
+  --red:#7A2E2E; --red-bg:#F3E6E4;
+}
+*{ 
+  box-sizing:border-box; 
+  margin:0; 
+  padding:0; 
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #dee9f4;
+  color: var(--ink);
+  line-height: 1.6;
+}
+h1,h2,h3,.display{ 
+  font-family:'Fraunces', serif;
+}
+button{ 
+  font-family:inherit; 
+  cursor:pointer; 
+  border:none; 
+}
+.pj-wrap{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}  
+.pj-card{
+  width:60%;
+  background:white;
+  border-radius:12px;
+  padding:40px 44px;
+}
+.pj-card h1{ 
+  font-size:24px;
+  margin-bottom:6px;
+}
+.pj-subtitle{  
+  font-size:13px;
+  margin-bottom:28px;
+}    
+.pj-field{ 
+  margin-bottom:20px; 
+}   
+.pj-field input[type="text"],
+.pj-field textarea{
+  width:100%;
+  padding:11px 13px;
+  border:1px solid rgb(204, 199, 199);
+  border-radius:6px;
+  font-family:inherit;
+  font-size:14px;
+}
+.pj-radio-group{ 
+  display:flex; 
+  gap:10px; 
+}
+.pj-radio-opt{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  border:1px solid var(--line);
+  border-radius:6px;
+  padding:10px 14px;
+  font-size:13px;
+  cursor:pointer;
+  flex:1;
+}
+.pj-radio-opt input{ 
+  accent-color: var(--maroon); 
+}
+.pj-checkbox-row{
+  display:flex;
+  align-items:flex-start;
+  gap:8px;
+  margin-bottom:28px;
+  font-size:13px;
+  color:var(--slate);
+}   
+.pj-checkbox-row input{ 
+  margin-top:3px; 
+  accent-color: var(--maroon); 
+}.pj-submit-btn {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #5F7890;
+  border-radius: 5px;
+  background: #3b5f80;
+  color: #FFFFFF;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pj-submit-btn:hover {
+  background: #4E657B;
+}
+.pj-submit-btn.posted {
+  background: #5F806F;
+  border-color: #5F806F;
+}
+.pj-back-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 11px;
+  background: #FFFFFF;
+  color: #617e9f;
+  border: 1px solid #DEE3E8;
+  border-radius: 5px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.pj-back-btn:hover {
+  background: #EDF1F4;
+  color: #293241;
+  border-color: #CBD2D9;
+}

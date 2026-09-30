@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<head>
+  <title>My Dashboard — SEU Circle</title>
+  <link rel="stylesheet" href="css/alumni-dashboard.css">
+</head>
+
+<body>
+  <div class="dashboard-layout">
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+      <div class="sidebar-brand"> 
+          <strong>SEU Circle</strong>
+          <span>Alumni Network</span>
+      </div>
+
+      <nav class="sidebar-nav">
+        <button class="side-nav-item active">
+          <span class="nav-icon">⌂</span>
+          <span>Dashboard</span>
+        </button>
+
+        <button class="side-nav-item" onclick="location.href='alumni-profile.html'">
+          <span class="nav-icon">◉</span>
+          <span>My Profile</span>
+        </button>
+
+        <button
+          class="side-nav-item" onclick="location.href='job-board.html'">
+          <span class="nav-icon">▣</span>
+          <span>Job Board</span>
+        </button>
+
+        <button class="side-nav-item" onclick="location.href='directory.html'">
+          <span class="nav-icon">♧</span>
+          <span>Alumni Directory</span>
+        </button>
+      </nav>
+
+      <!-- Sidebar bottom -->
+      <div class="sidebar-bottom">
+        <div class="sidebar-user">
+          <div class="sidebar-avatar">
+            MR
+          </div>
+          <div class="sidebar-user-info">
+            <strong>Maliha Rahman</strong>
+            <span>Alumni</span>
+          </div>
+        </div>
+
+        <!-- Logout -->
+        <button class="logout-btn" onclick="location.href='landing.html'">
+          <span>↪</span>
+          <span>Log Out</span>
+        </button>
+      </div>
+    </aside>
+
+    <!--MAIN CONTENT-->
+    <main class="main-content">
+      <section class="page-heading">
+        <div>
+          <h1> Alumni Dashboard</h1>
+          <p> Welcome back, Maliha. Here's your referral activity and job postings.</p>
+        </div>
+  
+        <button class="primary-btn" onclick="location.href='post-job.html'">
+          <span>+</span>
+          Post a New Job
+        </button>
+      </section>
+
+      <!--Bottom-->
+      <section class="stats-grid">
+        <!-- Referrals Received -->
+        <div class="stat-card referral-card">
+          <div class="stat-top">
+            <div class="stat-icon"> ↗ </div>
+            <span class="stat-label"> REFERRALS </span>
+          </div>
+          <div class="stat-number"> 10 </div>
+          <div class="stat-title"> Referrals Received </div>
+        </div>
+
+        <!-- Jobs Posted -->
+        <div class="stat-card job-card">
+          <div class="stat-top">
+            <div class="stat-icon">  ▣  </div>
+            <span class="stat-label">JOB POSTS </span>
+          </div>
+          <div class="stat-number"> 25 </div>
+          <div class="stat-title"> Jobs Posted </div>
+        </div>
+
+        <!-- Mentees -->
+        <div class="stat-card mentee-card">
+          <div class="stat-top">
+            <div class="stat-icon"> ♧ </div>
+            <span class="stat-label"> NETWORK </span>
+          </div>
+          <div class="stat-number"> 10</div>
+          <div class="stat-title">Mentees </div>
+        </div>
+
+      </section>
+
+      <!-- ANALYTICS -->
+      <section class="analytics-grid">
+        <!--REFERRAL TREND-->
+        <div class="panel referral-chart-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Referral Requests Trend </h2>
+              <p>Requests received over the last 6 months</p>
+            </div>
+          </div>
+          <div class="line-chart">
+            <div class="chart-y-labels">
+              <span>6</span>
+              <span>5</span>
+              <span>4</span>
+              <span>3</span>
+              <span>2</span>
+              <span>1</span>
+              <span>0</span>
+            </div>
+
+            <div class="chart-area">
+              <div class="chart-grid-line line-1"></div>
+              <div class="chart-grid-line line-2"></div>
+              <div class="chart-grid-line line-3"></div>
+              <div class="chart-grid-line line-4"></div>
+              <div class="chart-grid-line line-5"></div>
+              <div class="chart-grid-line line-6"></div>
+              <div class="chart-grid-line line-7"></div>
+
+              <svg
+                class="trend-svg"
+                viewBox="0 0 600 220"
+                preserveAspectRatio="none">
+
+                <path class="chart-area-fill"
+                  d="
+                    M 0 150
+                    C 100 120, 120 125, 200 165
+                    C 270 195, 300 125, 400 105
+                    C 480 90, 530 75, 600 45
+                    L 600 220
+                    L 0 220
+                    Z
+                  "
+                />
+
+                <path class="chart-line"
+                  d="
+                    M 0 150
+                    C 100 120, 120 125, 200 165
+                    C 270 195, 300 125, 400 105
+                    C 480 90, 530 75, 600 45
+                  "
+                />
+
+                <circle cx="0" cy="150" r="5">  </circle>
+                <circle cx="120" cy="125" r="5"> </circle>
+                <circle cx="200" cy="165"  r="5">  </circle>
+                <circle cx="300" cy="125" r="5"> </circle>
+                <circle cx="400" cy="105" r="5">  </circle>
+                <circle cx="600" cy="45" r="5">  </circle>
+              </svg>
+
+
+              <div class="chart-months">
+                <span>Apr</span>
+                <span>May</span>
+                <span>Jun</span>
+                <span>Jul</span>
+                <span>Aug</span>
+                <span>Sep</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- JOB STATUS -->
+        <div class="panel job-chart-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Job Posting Status</h2>
+              <p>Breakdown of your posted jobs</p>
+            </div>
+          </div>
+
+          <div class="donut-wrapper">
+            <div class="donut-chart">
+              <div class="donut-center">
+                <strong>25</strong>
+                <span>Total Jobs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="donut-legend">
+            <div>
+              <span class="legend-dot active-dot"></span>Active </div>
+            <div>
+              <span class="legend-dot pending-dot"></span>Pending
+            </div>
+            <div>
+              <span class="legend-dot closed-dot"></span>Closed
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+      <!--LOWER CONTENT-->
+
+      <section class="lower-grid">
+        <!--REFERRAL REQUESTS-->
+        <div class="panel requests-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Referral Requests Received</h2>
+              <p>Students requesting your support</p>
+            </div>
+          </div>
+
+          <div class="request-list">
+            <div class="request-item" id="req-1">
+              <div class="person-avatar avatar-one"> NK </div>
+
+              <div class="request-info">
+                <strong> Nivran Khan</strong>
+                <span> Requesting referral for<b> Optimizely BD</b> </span>
+                <small> "I'd love to bring my frontend skills to your team... </small>
+              </div>
+
+              <div class="request-actions">
+                <button class="action-btn accept" onclick="setReferralStatus('req-1','accept', this )"> Accept </button>
+                <button class="action-btn decline" onclick="setReferralStatus('req-1','decline', this )"> Decline </button>
+              </div>
+            </div>
+
+
+            <div class="request-item" id="req-2">
+              <div class="person-avatar avatar-two"> RI </div>
+              <div class="request-info">
+                <strong> Rafiul Islam</strong>
+                <span>Requesting referral for <b> Optimizely BD </b> </span>
+                <small> "I've been following your work on..."</small>
+              </div>
+
+              <div class="request-actions">
+                <button class="action-btn accept" onclick="setReferralStatus('req-2','accept', this )"> Accept </button>
+                <button class="action-btn decline" onclick="setReferralStatus('req-2', 'decline', this )"> Decline </button>
+              </div>
+            </div>
+
+
+            <div class="request-item">
+              <div class="person-avatar avatar-three"> FK</div>
+              <div class="request-info">
+                <strong>Farhan Kabir </strong>
+                <span>Referral request</span>
+                <small>Requested last week</small>
+              </div>
+
+              <div class="request-status accepted-status"> ✓ Accepted </div>
+            </div>
+          </div>
+
+          <div class="panel-footer-link" onclick="location.href='all-referrals.html'"> View All Referral Requests<span> → </span> </div>
+        </div>
+
+        <!--JOBS I'VE POSTED-->
+        <div class="panel jobs-panel">
+          <div class="panel-header">
+            <div>
+              <h2>Jobs I've Posted</h2>
+              <p> Your recent job postings</p>
+            </div>
+          </div>
+
+          <div class="jobs-list">
+            <div class="job-item">
+              <div class="job-icon"> 💼 </div>
+              <div class="job-info">
+                <strong> Frontend Developer Intern</strong>
+                <span> Internship · React · 12 applicants </span>
+              </div>
+              <span class="job-status active-status"> Active </span>
+            </div>
+
+
+            <div class="job-item">
+              <div class="job-icon">💼 </div>
+                <div class="job-info">
+                  <strong> Backend Engineer</strong>
+                <span> Full-time · Node.js · 8 applicants</span>
+              </div>
+              <span class="job-status active-status"> Active</span>
+            </div>
+
+
+            <div class="job-item">
+              <div class="job-icon">🎨 </div>
+              <div class="job-info">
+               <strong> UI/UX Design Intern </strong>
+                <span> Internship · Figma · 5 applicants </span>
+              </div>
+              <span class="job-status pending-status"> Pending Approval</span>
+            </div>
+
+
+            <div class="job-item">
+              <div class="job-icon"> ☁ </div>
+              <div class="job-info">
+                <strong> DevOps Engineer </strong>
+                <span> Full-time · AWS · 15 applicants</span>
+              </div>
+              <span class="job-status closed-status"> Closed </span>
+            </div>
+
+          </div>
+
+          <div class="panel-footer-link" onclick="location.href='all-jobs-posted.html'"> View All Posted Jobs
+            <span> → </span>
+          </div>
+        </div>
+      </section>
+
+      <footer> <span> SEU Circle </span><b>·</b> An Alumni–Student Bridge </footer>
+    </main>
+  </div>
+
+ <script src="js/alumni-dashboard.js"></script>
+
+</body>
+</html>
