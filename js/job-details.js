@@ -1,12 +1,3 @@
-/* =========================================
-   SEU CIRCLE — ALUMNI JOB DETAILS
-========================================= */
-
-
-/* =========================================
-   ALUMNI / JOB DATA
-========================================= */
-
 const jobData = {
 
   name: "Maliha Rahman",
@@ -27,11 +18,6 @@ const jobData = {
 
   referral: true,
 
-  /*
-    Replace these two values with your
-    actual contact information.
-  */
-
   email: "maliha@example.com",
 
   phone: "+880 1XXXXXXXXX",
@@ -50,10 +36,6 @@ const jobData = {
 
 };
 
-
-/* =========================================
-   HELPER
-========================================= */
 
 function setText(id, value) {
 

@@ -84,3 +84,4 @@
 function goToDashboard() {
   window.location.href = 'alumni-dashboard.html';
 }
+

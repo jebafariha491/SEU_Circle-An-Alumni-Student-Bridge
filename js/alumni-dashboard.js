@@ -65,3 +65,4 @@ function setReferralStatus(id, action, button) {
 
 /* Run when dashboard page loads */
 renderPostedJobs();
+

@@ -6,7 +6,7 @@ const defaultProfile = {
   phone: "+880 1XXXXXXXXX",
 
   about:
-    "I am a passionate frontend developer interested in creating clean, responsive and user-friendly web experiences. I enjoy learning new technologies and building practical projects.",
+    "I am a Computer Science & Engineering graduate from Southeast University and a passionate Frontend Developer with a strong interest in creating clean, responsive, and user-friendly web experiences. I enjoy turning ideas and designs into functional digital products while continuously exploring new technologies and improving my development skills. I am also interested in UI/UX, modern web technologies, and building practical solutions that provide a smooth user experience. I believe in continuous learning, collaboration, and growing through real-world projects and challenges.",
 
   university: "Southeast University",
   department: "Computer Science & Engineering",
@@ -21,108 +21,263 @@ const defaultProfile = {
   interests: "Web Development, UI/UX, Technology",
 
   linkedin: "",
-  github: ""
+  github: "",
+  portfolio: ""
 };
 
 
+/* =========================================
+   GET PROFILE DATA
+========================================= */
+
 function getProfileData() {
 
-  const saved = localStorage.getItem("profileData");
+  const saved =
+    localStorage.getItem("profileData");
 
   if (saved) {
-    return JSON.parse(saved);
+
+    const profile =
+      JSON.parse(saved);
+
+    /* Preserve missing fields from default */
+
+    return {
+      ...defaultProfile,
+      ...profile
+    };
   }
-  return defaultProfile;
+
+  return {
+    ...defaultProfile
+  };
 }
 
+
+/* =========================================
+   LOAD PROFILE INTO FORM
+========================================= */
 
 function loadProfileIntoForm() {
 
-  const profile = getProfileData();
+  const profile =
+    getProfileData();
 
-  document.getElementById("fullName").value = profile.fullName || "";
-  document.getElementById("headline").value = profile.headline || "";
-  document.getElementById("location").value = profile.location || "";
-  document.getElementById("email").value = profile.email || "";
-  document.getElementById("phone").value = profile.phone || "";
-  document.getElementById("about").value = profile.about || "";
-  document.getElementById("university").value = profile.university || "";
-  document.getElementById("department").value = profile.department || "";
-  document.getElementById("degree").value = profile.degree || "";
-  document.getElementById("graduation").value = profile.graduation || "";
-  document.getElementById("company").value = profile.company || "";
-  document.getElementById("designation").value = profile.designation || "";
-  document.getElementById("careerStart").value = profile.careerStart || "";
-  document.getElementById("skills").value = profile.skills || "";
-  document.getElementById("interests").value = profile.interests || "";
-  document.getElementById("linkedin").value = profile.linkedin || "";
-  document.getElementById("github").value = profile.github || "";
+  document.getElementById("fullName").value =
+    profile.fullName || "";
+
+  document.getElementById("headline").value =
+    profile.headline || "";
+
+  document.getElementById("location").value =
+    profile.location || "";
+
+  document.getElementById("email").value =
+    profile.email || "";
+
+  document.getElementById("phone").value =
+    profile.phone || "";
+
+  document.getElementById("about").value =
+    profile.about || "";
+
+  document.getElementById("university").value =
+    profile.university || "";
+
+  document.getElementById("department").value =
+    profile.department || "";
+
+  document.getElementById("degree").value =
+    profile.degree || "";
+
+  document.getElementById("graduation").value =
+    profile.graduation || "";
+
+  document.getElementById("company").value =
+    profile.company || "";
+
+  document.getElementById("designation").value =
+    profile.designation || "";
+
+  document.getElementById("careerStart").value =
+    profile.careerStart || "";
+
+  document.getElementById("skills").value =
+    profile.skills || "";
+
+  document.getElementById("interests").value =
+    profile.interests || "";
+
+  document.getElementById("linkedin").value =
+    profile.linkedin || "";
+
+  document.getElementById("github").value =
+    profile.github || "";
+
+  /*
+    Portfolio field may not exist in
+    the current form, so check first.
+  */
+
+  const portfolioField =
+    document.getElementById("portfolio");
+
+  if (portfolioField) {
+
+    portfolioField.value =
+      profile.portfolio || "";
+  }
 }
+
+
+/* =========================================
+   SAVE PROFILE
+========================================= */
 
 document
   .getElementById("profileForm")
-  .addEventListener("submit", function (event) {
+  .addEventListener(
+    "submit",
+    function (event) {
 
-    event.preventDefault();
+      event.preventDefault();
 
-    const profileData = {
-      fullName:
-        document.getElementById("fullName").value.trim(),
 
-      headline:
-        document.getElementById("headline").value.trim(),
+      const profileData = {
 
-      location:
-        document.getElementById("location").value.trim(),
+        fullName:
+          document
+            .getElementById("fullName")
+            .value
+            .trim(),
 
-      email:
-        document.getElementById("email").value.trim(),
+        headline:
+          document
+            .getElementById("headline")
+            .value
+            .trim(),
 
-      phone:
-        document.getElementById("phone").value.trim(),
+        location:
+          document
+            .getElementById("location")
+            .value
+            .trim(),
 
-      about:
-        document.getElementById("about").value.trim(),
+        email:
+          document
+            .getElementById("email")
+            .value
+            .trim(),
 
-      university:
-        document.getElementById("university").value.trim(),
+        phone:
+          document
+            .getElementById("phone")
+            .value
+            .trim(),
 
-      department:
-        document.getElementById("department").value.trim(),
+        about:
+          document
+            .getElementById("about")
+            .value
+            .trim(),
 
-      degree:
-        document.getElementById("degree").value.trim(),
+        university:
+          document
+            .getElementById("university")
+            .value
+            .trim(),
 
-      graduation:
-        document.getElementById("graduation").value.trim(),
+        department:
+          document
+            .getElementById("department")
+            .value
+            .trim(),
 
-      company:
-        document.getElementById("company").value.trim(),
+        degree:
+          document
+            .getElementById("degree")
+            .value
+            .trim(),
 
-      designation:
-        document.getElementById("designation").value.trim(),
+        graduation:
+          document
+            .getElementById("graduation")
+            .value
+            .trim(),
 
-      careerStart:
-        document.getElementById("careerStart").value.trim(),
+        company:
+          document
+            .getElementById("company")
+            .value
+            .trim(),
 
-      skills:
-        document.getElementById("skills").value.trim(),
+        designation:
+          document
+            .getElementById("designation")
+            .value
+            .trim(),
 
-      interests:
-        document.getElementById("interests").value.trim(),
+        careerStart:
+          document
+            .getElementById("careerStart")
+            .value
+            .trim(),
 
-      linkedin:
-        document.getElementById("linkedin").value.trim(),
+        skills:
+          document
+            .getElementById("skills")
+            .value
+            .trim(),
 
-      github:
-        document.getElementById("github").value.trim()
-    };
+        interests:
+          document
+            .getElementById("interests")
+            .value
+            .trim(),
 
-    localStorage.setItem(
-      "profileData",
-      JSON.stringify(profileData)
-    );
-    window.location.href = "alumni-profile.html";
-  });
+        linkedin:
+          document
+            .getElementById("linkedin")
+            .value
+            .trim(),
+
+        github:
+          document
+            .getElementById("github")
+            .value
+            .trim(),
+
+        portfolio:
+          document.getElementById("portfolio")
+            ? document
+                .getElementById("portfolio")
+                .value
+                .trim()
+            : ""
+
+      };
+
+
+      /* Save to localStorage */
+
+      localStorage.setItem(
+        "profileData",
+        JSON.stringify(profileData)
+      );
+
+
+      /* Go back to profile */
+
+      window.location.href =
+        "alumni-profile.html";
+
+    }
+  );
+
+
+/* =========================================
+   INITIAL LOAD
+========================================= */
 
 loadProfileIntoForm();
+
