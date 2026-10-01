@@ -1,578 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Student profile on SEU Circle">
-  <title>My Profile — SEU Circle</title>
+  <title>My Profile</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="profilestyle.css">
-
-  <style>
-    .profile_views_header{
-      display:flex;
-      align-items:baseline;
-      gap:8px;
-      margin-top:10px;
-    }
-    .profile_views_number{
-      font-family:var(--mono, monospace);
-      font-size:18px;
-      font-weight:700;
-    }
-    .profile_views_label{
-      font-size:13px;
-      opacity:.9;
-    }
-
-    /* ===== SIDEBAR + FULL MAIN CONTENT LAYOUT ===== */
-    .sidebar{
-      width:300px !important;
-      flex:0 0 300px !important;
-      padding:34px 28px !important;
-    }
-    .sidebar-profile{
-      margin-top:0 !important;
-      padding-top:0 !important;
-      padding-bottom:30px !important;
-    }
-    .sidebar-avatar-wrap{
-      width:72px !important;
-      margin-bottom:14px !important;
-    }
-    .avatar-sm{
-      width:72px !important;
-      height:72px !important;
-    }
-    .change_photo_btn_sm{
-      width:24px !important;
-      height:24px !important;
-      bottom:-4px !important;
-      right:-4px !important;
-      font-size:12px !important;
-    }
-    .sidebar-profile-name{
-      font-size:18px !important;
-      line-height:1.3 !important;
-      margin-bottom:4px !important;
-      word-break:break-word;
-    }
-    .sidebar-profile-id{
-      font-size:12px !important;
-    }
-    .sidebar-visibility{
-      margin-top:10px !important;
-    }
-    .sidebar-menu-divider{
-      border-top:1px solid var(--line);
-      margin:2px 0 14px;
-    }
-    .sidebar-menu-label{
-      font-size:10px;
-      font-weight:700;
-      letter-spacing:1.2px;
-      text-transform:uppercase;
-      color:var(--slate);
-      margin:0 0 8px 12px;
-    }
-    .sidebar-nav{
-      gap:4px !important;
-    }
-    .sidebar-nav a{
-      padding:12px 14px !important;
-      font-size:15px !important;
-    }
-    .main-content{
-      flex:1 !important;
-      min-width:0 !important;
-    }
-    .main-content > section{
-      width:100%;
-    }
-    .main-content > section > .container{
-      max-width:none !important;
-      width:100% !important;
-      margin:0 !important;
-      padding:0 42px 40px !important;
-      box-sizing:border-box;
-    }
-
-</style>
-
-<style>
-/* Sidebar profile visual upgrade */
-.sidebar-profile{
-  padding:28px 8px 18px;
-  margin:0 0 22px;
-  text-align:center;
-  border-bottom:1px solid var(--line);
-}
-.sidebar-avatar-wrap{
-  width:92px;
-  height:92px;
-  margin:0 auto 16px;
-  position:relative;
-}
-.avatar-sm{
-  width:92px;
-  height:92px;
-  border-radius:50%;
-  object-fit:cover;
-  border:4px solid #fff;
-  box-shadow:0 5px 18px rgba(0,0,0,.14);
-}
-.change_photo_btn_sm{
-  width:27px;
-  height:27px;
-  right:0;
-  bottom:1px;
-  border:3px solid #fff;
-  font-size:12px;
-}
-.sidebar-profile-name{
-  font-size:19px;
-  line-height:1.25;
-  font-weight:700;
-  color:var(--ink);
-  letter-spacing:-.2px;
-  max-width:100%;
-  overflow-wrap:anywhere;
-}
-.sidebar-profile-id{
-  margin-top:6px;
-  font-size:12px;
-  letter-spacing:.6px;
-  color:var(--slate);
-}
-.sidebar-visibility{
-  margin-top:13px;
-}
-.sidebar-visibility .badge{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  padding:6px 12px;
-  border-radius:999px;
-  font-size:11px;
-  font-weight:600;
-}
-.sidebar-nav .menu-label{
-  margin:4px 12px 10px;
-  padding-top:4px;
-  font-size:10px;
-  font-weight:700;
-  letter-spacing:1.5px;
-  color:var(--slate);
-}
-.sidebar-nav{gap:4px;}
-.sidebar-nav a{padding:11px 14px;}
-</style>
-
-
-  <style>
-    /* Highlighted bio / About Me */
-    .profile_bio_highlight{
-      position:relative;
-      margin-bottom:24px;
-      padding:28px 32px 30px 34px;
-      border:1px solid #e3d4bd;
-      border-left:5px solid var(--brass);
-      border-radius:8px;
-      background:linear-gradient(135deg,#fffdf9 0%,#f7f0e5 100%);
-      box-shadow:0 6px 20px rgba(86,54,25,.08);
-      overflow:hidden;
-    }
-    .profile_bio_highlight::after{
-      content:'“';
-      position:absolute;
-      right:22px;
-      top:-18px;
-      font-family:Georgia,serif;
-      font-size:110px;
-      line-height:1;
-      color:rgba(138,95,38,.10);
-      pointer-events:none;
-    }
-    .profile_bio_kicker{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      margin-bottom:12px;
-      color:#8A5F26;
-      font-size:11px;
-      font-weight:700;
-      letter-spacing:1.4px;
-      text-transform:uppercase;
-    }
-    .profile_bio_kicker::before{
-      content:'';
-      width:30px;
-      height:2px;
-      background:var(--brass);
-      border-radius:2px;
-    }
-    .profile_bio_text{
-      position:relative;
-      z-index:1;
-      margin:0;
-      max-width:900px;
-      font-family:var(--font-display);
-      font-size:17px;
-      line-height:1.75;
-      color:var(--ink);
-    }
-    .profile_bio_empty{
-      color:var(--slate);
-      font-style:italic;
-    }
-</style>
-
-
-<style>
-/* =========================================================
-   PREMIUM PROFILE REDESIGN — final visual layer
-   Keeps existing functionality intact.
-   ========================================================= */
-:root{
-  --premium-burgundy:#70253d;
-  --premium-burgundy-2:#8d3f4f;
-  --premium-brass:#c49a43;
-  --premium-cream:#f6f1e8;
-  --premium-ink:#1f1d1b;
-  --premium-muted:#77716b;
-  --premium-line:#e7dfd4;
-  --premium-card:#ffffff;
-}
-
-body{
-  background:
-    radial-gradient(circle at 78% 5%, rgba(196,154,67,.08), transparent 24%),
-    var(--premium-cream) !important;
-  color:var(--premium-ink);
-}
-
-.app-shell{background:transparent;}
-
-/* ----- Sidebar ----- */
-.sidebar{
-  width:292px !important;
-  flex:0 0 292px !important;
-  padding:28px 22px 22px !important;
-  background:linear-gradient(180deg,#fff 0%,#fbfaf8 62%,#f7f2ea 100%) !important;
-  border-right:1px solid #ddd5cb !important;
-  box-shadow:10px 0 30px rgba(63,42,26,.045);
-  box-sizing:border-box;
-}
-.sidebar-nav{height:100%;display:flex;flex-direction:column;gap:0 !important;}
-.sidebar-profile{
-  padding:10px 8px 24px !important;
-  margin:0 0 18px !important;
-  border-bottom:1px solid #e4ddd4 !important;
-}
-.sidebar-avatar-wrap{width:94px !important;height:94px !important;margin:0 auto 15px !important;}
-.avatar-sm{
-  width:94px !important;height:94px !important;
-  border:5px solid #fff !important;
-  box-shadow:0 9px 24px rgba(58,35,25,.18) !important;
-}
-.change_photo_btn_sm{
-  width:29px !important;height:29px !important;
-  right:-2px !important;bottom:0 !important;
-  background:var(--premium-brass) !important;color:#fff !important;
-  border:3px solid #fff !important;
-  box-shadow:0 4px 10px rgba(0,0,0,.14) !important;
-}
-.sidebar-profile-name{
-  font-size:21px !important;line-height:1.2 !important;
-  font-weight:800 !important;color:var(--premium-burgundy) !important;
-  letter-spacing:-.35px !important;
-}
-.sidebar-profile-id{
-  margin-top:7px !important;font-size:11px !important;
-  color:#7e7770 !important;letter-spacing:1px !important;
-}
-.sidebar-visibility{margin-top:13px !important;}
-.sidebar-visibility .badge{
-  background:#f1eadf !important;color:#73552d !important;
-  border:1px solid #dacdbb !important;
-  padding:7px 13px !important;
-  box-shadow:none !important;
-}
-.sidebar_nav_group{display:flex;flex-direction:column;gap:5px;}
-.sidebar_nav_group a,.sidebar_nav_bottom a{
-  display:flex !important;align-items:center;gap:13px;
-  min-height:48px;box-sizing:border-box;
-  padding:0 14px !important;
-  border-radius:10px !important;
-  color:#5c5650 !important;
-  font-size:14px !important;font-weight:600 !important;
-  text-decoration:none !important;
-  transition:background .18s ease,color .18s ease,transform .18s ease,box-shadow .18s ease;
-}
-.sidebar_nav_group a:hover,.sidebar_nav_bottom a:hover{
-  background:#f3ece3 !important;color:var(--premium-burgundy) !important;
-  transform:translateX(2px);
-}
-.sidebar_nav_group a.current{
-  background:linear-gradient(90deg,var(--premium-burgundy),#83364a) !important;
-  color:#fff !important;
-  box-shadow:0 8px 18px rgba(112,37,61,.18);
-}
-.nav_icon{
-  width:24px;height:24px;display:inline-flex;align-items:center;justify-content:center;
-  border-radius:7px;font-size:15px;font-weight:700;flex:0 0 24px;
-  color:var(--premium-brass);
-}
-.current .nav_icon{color:#fff;background:rgba(255,255,255,.14);}
-.sidebar_nav_bottom{margin-top:auto;padding-top:18px;border-top:1px solid #e4ddd4;}
-.logout-link{color:#8a5e5e !important;}
-.logout-link:hover{background:#f7eded !important;color:#8b3345 !important;}
-
-/* ----- Main canvas ----- */
-.main-content > section{padding-top:30px !important;}
-.main-content > section > .container{
-  padding:0 38px 54px !important;
-}
-
-/* ----- Hero ----- */
-.profile_header{
-  position:relative !important;
-  display:flex !important;
-  gap:30px !important;
-  align-items:stretch !important;
-  min-height:224px;
-  margin-bottom:24px !important;
-  padding:30px 32px !important;
-  border:1px solid rgba(255,255,255,.13) !important;
-  border-radius:16px !important;
-  overflow:hidden !important;
-  background:
-    radial-gradient(circle at 86% 15%,rgba(255,255,255,.12),transparent 22%),
-    linear-gradient(135deg,#6c243a 0%,#7e3047 44%,#9a613c 100%) !important;
-  box-shadow:0 16px 35px rgba(83,43,31,.18) !important;
-  color:#fff !important;
-}
-.profile_header::before{
-  content:'';position:absolute;right:-90px;bottom:-110px;width:290px;height:290px;
-  border:1px solid rgba(255,255,255,.10);border-radius:50%;
-}
-.profile_header::after{
-  content:'';position:absolute;right:85px;top:-80px;width:170px;height:170px;
-  border:1px solid rgba(255,255,255,.08);border-radius:50%;
-}
-.hero_identity{position:relative;z-index:1;flex:1;min-width:0;}
-.hero_kicker{
-  font-size:10px;font-weight:800;letter-spacing:2px;
-  color:#f0dcae;margin-bottom:8px;
-}
-.hero_name{
-  margin:0 !important;font-size:34px !important;line-height:1.12 !important;
-  letter-spacing:-.7px !important;color:#fff !important;font-weight:800 !important;
-}
-.hero_meta{
-  margin-top:9px;font-size:14px;color:rgba(255,255,255,.84);font-weight:500;
-}
-.hero_id{
-  margin-top:5px;font-family:var(--mono,monospace);font-size:11px;
-  color:rgba(255,255,255,.58);letter-spacing:.7px;
-}
-.hero_stats_row{
-  display:flex;align-items:flex-end;gap:34px;margin-top:27px;
-}
-.hero_completion{max-width:360px;min-width:240px;}
-.profile_header .completion_top{color:rgba(255,255,255,.86);font-size:12px;}
-.profile_header .completion_pct{color:#fff;font-weight:800;}
-.profile_header .completion-track{background:rgba(255,255,255,.22);height:7px;border-radius:999px;overflow:hidden;}
-.profile_header .completion-fill{background:linear-gradient(90deg,#d6b15d,#f1d98f) !important;border-radius:999px;}
-.profile_views_header{
-  margin-top:0 !important;padding-left:22px;border-left:1px solid rgba(255,255,255,.22);
-  display:flex;flex-direction:column;gap:2px;align-items:flex-start;
-}
-.profile_views_number{font-size:25px !important;color:#fff;font-weight:800 !important;line-height:1;}
-.profile_views_label{font-size:11px !important;color:rgba(255,255,255,.68) !important;text-transform:uppercase;letter-spacing:1px;}
-.hero_actions{position:relative;z-index:2;display:flex !important;flex-direction:column;justify-content:center;gap:10px !important;min-width:165px;}
-.hero_actions .pill-btn{
-  width:165px;height:44px;border-radius:9px !important;
-  border:1px solid rgba(255,255,255,.42) !important;
-  background:rgba(255,255,255,.08) !important;color:#fff !important;
-  backdrop-filter:blur(4px);font-size:12px !important;font-weight:700;
-  transition:background .18s ease,transform .18s ease;
-}
-.hero_actions .pill-btn:hover{background:rgba(255,255,255,.18) !important;transform:translateY(-1px);}
-.hero_actions .pill-btn span{margin-right:7px;color:#f1d58b;}
-
-/* ----- Bio ----- */
-.profile_bio_highlight{
-  margin-bottom:24px !important;padding:31px 38px 34px !important;
-  border:1px solid #e2d4be !important;border-left:5px solid var(--premium-brass) !important;
-  border-radius:14px !important;
-  background:linear-gradient(135deg,#fffefa,#f7efe3) !important;
-  box-shadow:0 10px 28px rgba(82,55,31,.08) !important;
-}
-.profile_bio_kicker{font-size:11px !important;letter-spacing:2px !important;color:#89601f !important;margin-bottom:14px !important;}
-.profile_bio_kicker::before{width:36px !important;height:2px !important;background:var(--premium-brass) !important;}
-.profile_bio_text{font-size:18px !important;line-height:1.75 !important;font-weight:500;color:#302b27 !important;max-width:920px;}
-
-/* ----- Two-column information cards ----- */
-.info_pair_grid{display:grid;grid-template-columns:1fr 1.15fr;gap:20px;margin-bottom:24px;}
-.profile_section{
-  background:var(--premium-card) !important;
-  border:1px solid var(--premium-line) !important;
-  border-radius:14px !important;
-  box-shadow:0 7px 20px rgba(54,39,28,.045) !important;
-  margin-bottom:24px !important;
-  padding:25px 28px !important;
-}
-.info_pair_grid .profile_section{margin-bottom:0 !important;}
-.compact_section{min-height:205px;}
-.section_heading{display:flex;align-items:center;gap:12px;margin-bottom:22px;padding-bottom:16px;border-bottom:1px solid #eee7df;}
-.section_heading_wide{margin-bottom:20px;}
-.section_icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;background:#f6eee2;color:#916d2e;font-size:15px;font-weight:800;flex:0 0 34px;}
-.section_title{text-transform:uppercase;letter-spacing:1.5px;font-size:12px;font-weight:800;color:var(--premium-burgundy);}
-.section_subtitle{margin-top:3px;color:#8a837b;font-size:11px;line-height:1.4;}
-.info_block_inline{padding:10px 0 !important;border-bottom:1px solid #f0ebe4;}
-.info_block_inline:last-child{border-bottom:0;}
-.info_block_inline .info_value{margin-top:4px;}
-.academic_mini_grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px 28px;}
-.academic_mini_grid .info_block:last-child{grid-column:1/-1;}
-.info_label{color:#918a82 !important;font-size:9px !important;letter-spacing:1.2px !important;font-weight:800 !important;}
-.info_value{color:#2d2926 !important;font-size:14px !important;line-height:1.55 !important;}
-.info_value.empty{color:#a49d96 !important;font-style:italic;}
-
-/* ----- Profile details ----- */
-.about_details_section{padding-bottom:28px !important;}
-.details_grid{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;}
-.detail_tile{padding:18px 19px;background:#fcfaf7;border:1px solid #eee5d9;border-radius:11px;min-height:85px;box-sizing:border-box;}
-.detail_tile_wide{grid-column:1/-1;}
-.detail_tile .info_label{margin-bottom:10px;display:block;}
-.skills_tags{display:flex !important;flex-wrap:wrap;gap:8px;}
-.skills_tags .badge,.skills_tags span{border-radius:999px !important;padding:7px 11px !important;background:#f4ecdf !important;border:1px solid #e4d5be !important;color:#6f542f !important;font-size:11px !important;font-weight:700 !important;}
-
-/* ----- Remaining sections: stronger hierarchy ----- */
-.profile_section > .eyebrow-line{margin-bottom:20px !important;}
-.profile_section > .eyebrow-line span{color:var(--premium-burgundy) !important;font-weight:800 !important;letter-spacing:1.7px !important;}
-.profile_section > .eyebrow-line .rule{background:var(--premium-brass) !important;width:38px !important;height:2px !important;}
-.list_item_card{
-  border:1px solid #eee6dc !important;background:#fcfaf7 !important;
-  border-radius:11px !important;padding:16px 18px !important;margin-bottom:10px !important;
-  transition:transform .16s ease,box-shadow .16s ease,border-color .16s ease;
-}
-.list_item_card:hover{transform:translateY(-2px);border-color:#dfd0bb !important;box-shadow:0 8px 18px rgba(65,43,27,.07);}
-.list_item_title{font-size:14px !important;font-weight:800 !important;color:#322d29 !important;}
-.list_item_sub{font-size:12px !important;color:#817a73 !important;margin-top:5px;line-height:1.5;}
-.profile_section a{color:var(--premium-burgundy) !important;font-weight:700;}
-
-/* ----- Links ----- */
-#view-resume,#view-linkedin,#view-github{font-weight:700;}
-
-/* ----- Responsive ----- */
-
-
-.sr-only{
-      position:absolute !important;
-      width:1px !important;
-      height:1px !important;
-      padding:0 !important;
-      margin:-1px !important;
-      overflow:hidden !important;
-      clip:rect(0,0,0,0) !important;
-      white-space:nowrap !important;
-      border:0 !important;
-    }
-    :focus-visible{
-      outline:3px solid rgba(110,36,54,.35);
-      outline-offset:3px;
-    }
-</style>
-
-
-<style id="final-visual-design">
-:root{
-  --navy:#17324d; --navy-2:#214765; --teal:#2a9d8f; --teal-soft:#e8f5f3;
-  --bg:#f5f7f9; --card:#fff; --text:#17212b; --muted:#718096; --line:#e4e9ee;
-  --shadow:0 10px 30px rgba(23,50,77,.07); --radius:18px;
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;line-height:1.6}
-.app-shell{min-height:100vh;background:var(--bg)}
-.sidebar{width:286px!important;flex:0 0 286px!important;background:linear-gradient(180deg,#17324d 0%,#10283d 100%)!important;border:0!important;color:#fff;padding:28px 20px!important;box-shadow:10px 0 30px rgba(16,40,61,.08);position:sticky;top:0;height:100vh}
-.sidebar-nav{height:100%;gap:8px!important}
-.sidebar-profile{margin:0!important;padding:4px 8px 26px!important;border-bottom:1px solid rgba(255,255,255,.12);text-align:center}
-.sidebar-avatar-wrap{width:96px!important;margin:0 auto 14px!important}
-.avatar-sm{width:96px!important;height:96px!important;border:4px solid rgba(255,255,255,.18);box-shadow:0 8px 24px rgba(0,0,0,.2)}
-.change_photo_btn_sm{background:var(--teal)!important;color:#fff!important;border:3px solid #17324d!important;width:28px!important;height:28px!important}
-.sidebar-profile-name{font-size:17px!important;font-weight:750!important;color:#fff!important;line-height:1.25}
-.sidebar-profile-id{font-size:12px!important;color:rgba(255,255,255,.62)!important;margin-top:4px}
-.sidebar_nav_group{display:flex;flex-direction:column;gap:6px;margin-top:20px}
-.sidebar_nav_group a,.sidebar_nav_bottom a{display:flex!important;align-items:center;gap:12px;padding:12px 14px!important;border-radius:12px!important;color:rgba(255,255,255,.72)!important;font-weight:600!important;transition:.2s ease!important}
-.sidebar_nav_group a:hover,.sidebar_nav_bottom a:hover{background:rgba(255,255,255,.08)!important;color:#fff!important;transform:translateX(2px)}
-.sidebar_nav_group a.current{background:rgba(42,157,143,.18)!important;color:#fff!important;box-shadow:inset 3px 0 var(--teal)}
-.nav_icon{width:22px;text-align:center;color:var(--teal);font-size:17px}
-.sidebar_nav_bottom{margin-top:auto;padding-top:16px;border-top:1px solid rgba(255,255,255,.1)}
-.main-content{background:var(--bg)!important;min-width:0;padding-bottom:60px}
-.main-content>section{padding:36px 42px!important}
-.container{max-width:1120px!important;margin:0 auto!important}
-.profile_header{position:relative;overflow:hidden;background:linear-gradient(135deg,#fff 0%,#f4fbfa 100%)!important;border:1px solid var(--line)!important;border-radius:24px!important;padding:34px!important;box-shadow:var(--shadow)!important;display:flex;gap:28px;align-items:flex-end}
-.profile_header:before{content:"";position:absolute;right:-80px;top:-100px;width:280px;height:280px;border-radius:50%;background:rgba(42,157,143,.09)}
-.profile_header>*{position:relative;z-index:1}
-.hero_identity{display:flex;flex-direction:column;gap:4px}
-.hero_kicker{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--teal);text-transform:uppercase}
-.hero_name{font-size:38px!important;line-height:1.12!important;letter-spacing:-.035em;color:var(--navy)!important;margin:4px 0 0!important}
-.hero_meta{color:var(--muted);font-size:14px;font-weight:600}
-.hero_stats_row{display:flex;align-items:end;gap:28px;margin-top:24px}
-.hero_completion{max-width:540px!important;flex:1}
-.profile_views_header{min-width:120px;padding-left:24px;border-left:1px solid var(--line);display:flex;flex-direction:column}
-.profile_views_number{font-size:26px;font-weight:800;color:var(--navy)}
-.profile_views_label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.completion-fill{background:linear-gradient(90deg,var(--teal),#55c8ba)!important}
-.pill-btn{border-radius:12px!important;padding:11px 17px!important;font-weight:750!important;transition:.2s ease!important}
-.pill-btn.ghost{background:#fff!important;border:1px solid var(--line)!important;color:var(--navy)!important}
-.pill-btn.ghost:hover{border-color:var(--teal)!important;color:var(--teal)!important;transform:translateY(-2px);box-shadow:0 8px 18px rgba(42,157,143,.12)}
-.pill-btn.maroon{background:var(--navy)!important;border-color:var(--navy)!important;color:#fff!important}
-.pill-btn.maroon:hover{background:var(--navy-2)!important;transform:translateY(-2px)}
-.stats_row_profile{display:grid!important;grid-template-columns:repeat(2,1fr);gap:16px;margin:20px 0!important}
-.card,.info_block,.profile_section{border-color:var(--line)!important}
-.card{border-radius:16px!important;box-shadow:0 6px 20px rgba(23,50,77,.04)!important}
-.stat_card_sm{padding:20px 22px!important;background:#fff}
-.stat-mono{color:var(--navy)!important;font-size:28px!important;font-weight:800!important}
-.stat-label{color:var(--muted)!important}
-.profile_section{background:transparent!important;margin-top:30px!important}
-.eyebrow-line{display:flex;align-items:center;gap:12px;margin-bottom:15px!important;color:var(--navy)!important;font-weight:800!important;letter-spacing:.12em!important;font-size:11px!important}
-.eyebrow-line .rule{width:24px!important;height:3px!important;background:var(--teal)!important;border-radius:3px}
-.info_grid{gap:14px!important}
-.info_block{background:#fff!important;border:1px solid var(--line)!important;border-radius:14px!important;padding:18px!important;transition:.2s ease}
-.info_block:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#cce7e3!important}
-.info_label{font-size:10px!important;letter-spacing:.1em!important;color:var(--muted)!important;font-weight:800!important}
-.info_value{margin-top:5px;color:var(--text)!important;font-weight:650}
-.profile_bio_highlight{background:linear-gradient(135deg,#fff,#f1faf8)!important;border:1px solid #d8eee9!important;border-left:5px solid var(--teal)!important;border-radius:18px!important;box-shadow:var(--shadow)!important}
-.profile_bio_kicker{color:var(--teal)!important;letter-spacing:.12em!important}
-.profile_bio_text{font-size:16px!important;line-height:1.8!important;color:#344454!important}
-.section-card,.detail-card,.list-card{background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:0 5px 18px rgba(23,50,77,.035);transition:.2s ease}
-.section-card:hover,.detail-card:hover,.list-card:hover{transform:translateY(-2px);box-shadow:var(--shadow)}
-input[type=text],input[type=email],input[type=password],input[type=url],textarea,select{border:1px solid var(--line)!important;border-radius:11px!important;background:#fff!important;color:var(--text)!important;padding:11px 13px!important;outline:none!important;transition:.2s ease}
-input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-shadow:0 0 0 4px rgba(42,157,143,.10)!important}
-.edit_panel{background:#fff!important;border:1px solid var(--line)!important;border-radius:22px!important;box-shadow:var(--shadow)!important}
-.edit_tabs{border-bottom:1px solid var(--line)!important;gap:6px!important}
-.edit_tab{border-radius:10px!important;color:var(--muted)!important;font-weight:700!important}
-.edit_tab[aria-selected=true]{background:var(--teal-soft)!important;color:var(--teal)!important}
-.search-toolbar{display:flex;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px 14px;margin:24px 0;box-shadow:0 5px 18px rgba(23,50,77,.035)}
-.search-toolbar input{flex:1;border:0!important;box-shadow:none!important;background:transparent!important}
-.filter-chip{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:7px 12px;font-size:12px;font-weight:700;cursor:pointer;transition:.2s}
-.filter-chip:hover,.filter-chip.active{background:var(--teal-soft);border-color:#bfe4de;color:var(--teal)}
-.empty-state{padding:38px 20px;text-align:center;border:1px dashed #cfd9e2;border-radius:16px;background:#fbfcfd;color:var(--muted)}
-.empty-state .empty-icon{font-size:30px;margin-bottom:8px;color:var(--teal)}
-
-@media print{body{background:#fff}.sidebar,.hero_actions,.search-toolbar,.edit_panel,.change_photo_btn_sm{display:none!important}.main-content>section{padding:0!important}.profile_header,.card,.info_block,.profile_bio_highlight{box-shadow:none!important;border-color:#ddd!important}.profile_header{break-inside:avoid}.profile_section{break-inside:avoid}.main-content{padding:0!important}}
-</style>
 </head>
 
 <body>
 
   <div class="app-shell">
-
     <aside class="sidebar">
-      <nav class="sidebar-nav" aria-label="Profile navigation">
+      <nav class="sidebar-nav" >
 
         <div class="sidebar-profile">
           <div class="sidebar-avatar-wrap">
@@ -590,10 +28,9 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
         </div>
 
         <div class="sidebar_nav_group">
-          <a href="student-dashboard.html"><span class="nav_icon">⌂</span><span>Dashboard</span></a>
-          <a href="alumni-directory.html"><span class="nav_icon">◎</span><span>Alumni</span></a>
+          <a href="#" onclick="goDashboard();return false;"><span class="nav_icon">⌂</span><span>Dashboard</span></a>
+        <!-- <a href="directory.html"><span class="nav_icon">◎</span><span>Alumni</span></a>-->
           <a href="jobs.html"><span class="nav_icon">▣</span><span>Jobs</span></a>
-          <a href="success-stories.html"><span class="nav_icon">✦</span><span>Stories</span></a>
           <a href="student-profile.html" class="current"><span class="nav_icon">◉</span><span>My Profile</span></a>
         </div>
         <div class="sidebar_nav_bottom">
@@ -608,8 +45,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
 
       <section style="padding-top:40px;">
         <div class="container" style="max-width:none;width:100%;margin:0;">
-
-          <!-- ===== VIEW MODE ===== -->
           <div id="profile-view">
 
             <div class="profile_header">
@@ -625,13 +60,13 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
                       <span class="completion_pct" id="completion-pct"></span>
                     </div>
                     <div class="completion-track">
-                      <div class="completion-fill" id="completion-fill" style="width:0%;"></div>
+                      <div class="completion-fill" id="completion-fill"  ></div>
                     </div>
                   </div>
 
                   <div class="profile_views_header">
                     <span class="profile_views_number" id="stat-views"></span>
-                    <span class="profile_views_label">Profile Views</span>
+                    <span class="profile_views_label">PROFILE VIEWS</span>
                   </div>
                 </div>
               </div>
@@ -643,28 +78,29 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
             </div>
 
 
-            <!-- HIGHLIGHTED BIO -->
             <div class="profile_bio_highlight">
               <div class="profile_bio_kicker">About Me</div>
               <p class="profile_bio_text" id="view-bio"></p>
             </div>
 
             <div class="info_pair_grid">
-              <!-- CONTACT -->
               <div class="profile_section compact_section">
                 <div class="section_heading">
                   <div class="section_icon">✉</div>
                   <div><div class="section_title">Contact</div><div class="section_subtitle">How people can reach you</div></div>
                 </div>
                 <div class="info_grid cols-1">
-                  <div class="info_block info_block_inline">
+                  <div class=" info_block info_block_inline">
                     <div class="info_label">EMAIL</div>
                     <div class="info_value" id="view-email"></div>
                   </div>
+                  <br>
+
                   <div class="info_block info_block_inline">
                     <div class="info_label">PHONE</div>
                     <div class="info_value" id="view-phone"></div>
                   </div>
+                  <br>
                   <div class="info_block info_block_inline">
                     <div class="info_label">LOCATION</div>
                     <div class="info_value" id="view-location"></div>
@@ -688,8 +124,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
               </div>
             </div>
 
-
-            <!-- ABOUT DETAILS -->
             <div class="profile_section about_details_section">
               <div class="section_heading section_heading_wide">
                 <div class="section_icon">✦</div>
@@ -715,8 +149,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
               </div>
             </div>
 
-
-            <!-- EXTRACURRICULAR -->
             <div class="profile_section">
               <div class="eyebrow-line"><div class="rule"></div><span>EXTRACURRICULAR / CLUB ACTIVITIES</span></div>
               <div id="view-extracurricular"></div>
@@ -780,7 +212,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
           </div>
 
 
-          <!-- ===== EDIT MODE ===== -->
           <form id="profile-edit" style="display:none;" onsubmit="saveProfile(); return false;">
 
             <h1 class="profile_name" style="margin-bottom:24px;">Edit Profile</h1>
@@ -864,12 +295,10 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
             <div class="form_row">
               <label for="edit-custom-sector">Other / Custom Sector</label>
               <input type="text" id="edit-custom-sector" placeholder="e.g. Cybersecurity, DevOps, FinTech">
-              <small style="display:block;margin-top:6px;color:#777;">
-                Multiple sectors comma দিয়ে আলাদা করে লিখতে পারো।
-              </small>
+              
             </div>
             <div class="form_row">
-              <label for="edit-languages">Languages (comma separated, e.g. Bangla - Native, English - Fluent)</label>
+              <label for="edit-languages">Languages </label>
               <input type="text" id="edit-languages" placeholder="Bangla (Native), English (Fluent)">
             </div>
 
@@ -931,15 +360,11 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
 
         </div>
       </section>
-
-
-
     </main>
 
   </div>
 
-
-  <script src="script.js"></script>
+   <script src="script.js"></script>
   <script>
     const PROFILE_FIELDS = [
       'name','studentId','batch','department','semester','cgpa','creditsCompleted',
@@ -950,7 +375,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
 
     function defaultProfile(){
       return {
-        name: 'Misfa Tabassum',
+        name: 'Jeba Fariha',
         studentId: '2019-CSE-193045',
         batch: '49',
         department: 'CSE',
@@ -998,8 +423,6 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
       return def;
     }
 
-    // Counts real "applied_<jobId>" flags set across the site (job-detail.html
-    // sets these). This is the one live/real stat on this page.
     function countAppliedJobs(){
       let count = 0;
       for(let i = 0; i < localStorage.length; i++){
@@ -1026,9 +449,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
       return p.photo ? p.photo : avatarUrl(p.name);
     }
 
-    // Resizes/crops the chosen image down to a small square JPEG data URL
-    // before saving to localStorage — full-resolution photos would blow
-    // past localStorage's size limit fast.
+ 
     function onPhotoSelected(event){
       const file = event.target.files[0];
       if(!file) return;
@@ -1137,7 +558,7 @@ input:focus,textarea:focus,select:focus{border-color:var(--teal)!important;box-s
 
       document.getElementById('hero-name').textContent = p.name || 'Your Name';
       document.getElementById('hero-meta').textContent = [p.department, p.batch ? 'Batch ' + p.batch : '', p.semester ? p.semester + ' Semester' : ''].filter(Boolean).join('  •  ');
-document.getElementById('completion-pct').textContent = pct + '% complete';
+      document.getElementById('completion-pct').textContent = pct + '% complete';
       document.getElementById('completion-fill').style.width = pct + '%';
 
       document.getElementById('stat-views').textContent = p.profileViews;
@@ -1196,7 +617,7 @@ document.getElementById('completion-pct').textContent = pct + '% complete';
     }
 
 
-    // ---------- dynamic list editors (Experience / Projects / Achievements / Publications) ----------
+
     let editExtracurricular = [];
     let editCertifications = [];
     let editExperience = [];
@@ -1407,318 +828,5 @@ document.getElementById('completion-pct').textContent = pct + '% complete';
 
     window.addEventListener('DOMContentLoaded', renderView);
   </script>
-
-</body>
-</html>
-<style id="final-profile-polish">
-/* =========================================================
-   FINAL POLISH — modern navy / teal / warm-white palette
-   ========================================================= */
-:root{
-  --premium-burgundy:#17324d !important;
-  --premium-burgundy-2:#245b73 !important;
-  --premium-brass:#2a9d8f !important;
-  --premium-cream:#f4f8fa !important;
-  --premium-ink:#17212b !important;
-  --premium-muted:#6b7785 !important;
-  --premium-line:#dce6eb !important;
-  --premium-card:#ffffff !important;
-  --profile-accent:#2a9d8f;
-  --profile-accent-soft:#e7f5f3;
-  --profile-navy:#17324d;
-  --profile-bg:#f4f8fa;
-}
-
-body{
-  background:var(--profile-bg) !important;
-  color:var(--premium-ink) !important;
-}
-
-.sidebar{
-  background:linear-gradient(180deg,#102a43 0%,#173b55 55%,#16354c 100%) !important;
-  border-right:0 !important;
-  color:#eef7fa !important;
-}
-.sidebar-profile{border-bottom:1px solid rgba(255,255,255,.13) !important;}
-.sidebar-profile-name{color:#fff !important;}
-.sidebar-profile-id{color:rgba(255,255,255,.62) !important;}
-.sidebar-nav a{color:rgba(239,247,250,.78) !important;border-radius:12px !important;}
-.sidebar-nav a:hover{background:rgba(255,255,255,.08) !important;color:#fff !important;}
-.sidebar-nav a.current{background:rgba(42,157,143,.18) !important;color:#fff !important;box-shadow:inset 3px 0 0 #48c8b8 !important;}
-.nav_icon{color:#72d6c8 !important;}
-.logout-link{color:#b9cbd4 !important;}
-.logout-link:hover{background:rgba(255,255,255,.07) !important;color:#fff !important;}
-.change_photo_btn_sm{background:#2a9d8f !important;color:#fff !important;border-color:#fff !important;}
-
-.main-content{background:transparent !important;}
-.profile_header{
-  background:linear-gradient(135deg,#102a43 0%,#173b55 52%,#216277 100%) !important;
-  border:0 !important;
-  box-shadow:0 18px 45px rgba(16,42,67,.16) !important;
-  border-radius:22px !important;
-  padding:34px 38px !important;
-}
-.profile_header::before,.profile_header::after{display:none !important;}
-.hero_kicker{color:#79d7ca !important;}
-.hero_name{color:#fff !important;letter-spacing:-.6px !important;}
-.hero_meta,.hero_id{color:rgba(255,255,255,.76) !important;}
-.profile_header .completion_top{color:rgba(255,255,255,.78) !important;}
-.profile_header .completion_pct{color:#fff !important;}
-.profile_header .completion-track{background:rgba(255,255,255,.16) !important;}
-.profile_header .completion-fill{background:linear-gradient(90deg,#36b7a6,#8be0d5) !important;}
-.profile_views_header{padding:11px 14px !important;border:1px solid rgba(255,255,255,.14);border-radius:12px;background:rgba(255,255,255,.07);}
-.profile_views_number{color:#fff !important;}
-.profile_views_label{color:rgba(255,255,255,.68) !important;}
-.hero_actions .pill-btn{border-color:rgba(255,255,255,.2) !important;background:rgba(255,255,255,.08) !important;color:#fff !important;backdrop-filter:blur(8px);}
-.hero_actions .pill-btn:hover{background:rgba(255,255,255,.16) !important;transform:translateY(-2px);}
-.hero_actions .pill-btn span{color:#79d7ca !important;}
-
-.profile_bio_highlight{
-  background:linear-gradient(135deg,#ffffff,#f0f8f7) !important;
-  border:1px solid #d5ebe7 !important;
-  border-left:5px solid #2a9d8f !important;
-  box-shadow:0 10px 30px rgba(23,59,85,.06) !important;
-  border-radius:16px !important;
-}
-.profile_bio_kicker{color:#238578 !important;}
-.profile_bio_text{color:#25343e !important;}
-
-.profile_section{
-  background:#fff !important;
-  border:1px solid #dce6eb !important;
-  border-radius:16px !important;
-  box-shadow:0 8px 24px rgba(23,59,85,.045) !important;
-}
-.section_heading{border-bottom:1px solid #e6eef1 !important;}
-.section_icon{background:#e7f5f3 !important;color:#207f75 !important;}
-.section_title{color:#17324d !important;}
-.section_subtitle{color:#71808c !important;}
-.info_label{color:#788793 !important;}
-.info_value{color:#25343e !important;}
-.detail_tile{background:#f8fbfc !important;border-color:#e2ebef !important;}
-.skills_tags .badge,.skills_tags span{background:#e8f5f3 !important;border-color:#cbe8e3 !important;color:#207f75 !important;}
-.list_item_card{border:1px solid #dce8ec !important;background:linear-gradient(180deg,#fff,#f9fbfc) !important;border-radius:13px !important;transition:.2s ease !important;}
-.list_item_card:hover{transform:translateY(-2px);box-shadow:0 9px 22px rgba(23,59,85,.08);border-color:#bcded9 !important;}
-.list_item_title{color:#17324d !important;}
-.list_item_sub{color:#71808c !important;}
-.list_item_sub a,.info_value a{color:#238578 !important;}
-
-/* Quick profile search / filters */
-.profile_tools{
-  display:flex;gap:12px;align-items:center;flex-wrap:wrap;
-  margin:22px 0 4px;padding:14px;
-  background:rgba(255,255,255,.82);border:1px solid #dce6eb;border-radius:15px;
-  box-shadow:0 7px 20px rgba(23,59,85,.035);
-}
-.profile_search_wrap{position:relative;flex:1 1 280px;}
-.profile_search_icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#7c8b96;pointer-events:none;}
-#profile-search{width:100%;box-sizing:border-box;padding:12px 15px 12px 38px;border:1px solid #d5e1e6;border-radius:11px;background:#fff;color:#17324d;outline:none;font:inherit;}
-#profile-search:focus{border-color:#74c9be;box-shadow:0 0 0 4px rgba(42,157,143,.1);}
-.profile_filter_chips{display:flex;gap:7px;flex-wrap:wrap;}
-.profile_filter_chip{border:1px solid #d4e1e6;background:#fff;color:#60717d;border-radius:999px;padding:8px 11px;font-size:11px;font-weight:800;cursor:pointer;transition:.18s ease;}
-.profile_filter_chip:hover{border-color:#9bcfc8;color:#207f75;}
-.profile_filter_chip.active{background:#e7f5f3;border-color:#a9d9d2;color:#207f75;}
-.profile_no_results{padding:18px;border:1px dashed #cddde3;border-radius:12px;color:#7a8993;background:#fbfdfe;text-align:center;font-size:13px;}
-
-/* Better edit experience */
-.edit_shell{background:#fff;border:1px solid #dce6eb;border-radius:20px;box-shadow:0 15px 40px rgba(23,59,85,.07);padding:28px;}
-.edit_topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:22px;}
-.edit_topbar h1{margin:0 !important;color:#17324d !important;font-size:30px !important;}
-.edit_topbar p{margin:7px 0 0;color:#778793;font-size:13px;}
-.edit_tabs{display:flex;gap:8px;overflow:auto;padding:5px;margin:0 0 25px;border:1px solid #dce6eb;border-radius:13px;background:#f6fafb;scrollbar-width:thin;}
-.edit_tab{flex:0 0 auto;border:0;background:transparent;color:#6c7b86;border-radius:9px;padding:10px 13px;font-weight:800;font-size:11px;cursor:pointer;white-space:nowrap;}
-.edit_tab:hover{color:#17324d;background:#eaf2f4;}
-.edit_tab.active{background:#173b55;color:#fff;box-shadow:0 4px 12px rgba(23,59,85,.15);}
-.edit_group{animation:editFade .18s ease;}
-@keyframes editFade{from{opacity:.2;transform:translateY(3px)}to{opacity:1;transform:none}}
-.edit_group > .eyebrow-line:first-child{margin-top:0 !important;}
-.edit_actions{position:sticky;bottom:14px;z-index:10;display:flex;justify-content:flex-end;gap:10px;padding:13px 0 0;background:linear-gradient(180deg,rgba(255,255,255,0),#fff 35%);}
-.edit_actions .pill-btn{min-width:130px;}
-.pill-btn.maroon{background:#173b55 !important;border-color:#173b55 !important;color:#fff !important;}
-.pill-btn.maroon:hover{background:#245b73 !important;}
-.form_row input,.form_row textarea,.form_row select{border-color:#d5e1e6 !important;border-radius:10px !important;background:#fbfdfe !important;}
-.form_row input:focus,.form_row textarea:focus,.form_row select:focus{border-color:#72c9be !important;box-shadow:0 0 0 4px rgba(42,157,143,.09) !important;outline:none !important;}
-.add_row_btn{border-color:#bddbd7 !important;color:#207f75 !important;background:#f4fbfa !important;}
-.add_row_btn:hover{background:#e7f5f3 !important;}
-
-/* Print / PDF */
-@media print{
-  @page{size:A4;margin:12mm;}
-  body{background:#fff !important;-webkit-print-color-adjust:exact;print-color-adjust:exact;}
-  .sidebar,.hero_actions,.profile_tools,#profile-edit,.change_photo_btn_sm{display:none !important;}
-  .app-shell{display:block !important;}
-  .main-content{width:100% !important;}
-  .main-content > section{padding-top:0 !important;}
-  .main-content > section > .container{padding:0 !important;max-width:none !important;}
-  .profile_header{box-shadow:none !important;border-radius:10px !important;break-inside:avoid;}
-  .profile_bio_highlight,.profile_section{box-shadow:none !important;break-inside:avoid;}
-  .profile_tools{display:none !important;}
-  .list_item_card{break-inside:avoid;}
-}
-</style>
-
-<script>
-(function(){
-  function addProfileTools(){
-    const view = document.getElementById('profile-view');
-    if(!view || document.getElementById('profile-tools')) return;
-    const bio = view.querySelector('.profile_bio_highlight');
-    if(!bio) return;
-    const tools = document.createElement('div');
-    tools.id = 'profile-tools';
-    tools.className = 'profile_tools';
-    tools.innerHTML = `
-      <div class="profile_search_wrap">
-        <span class="profile_search_icon">⌕</span>
-        <input id="profile-search" type="search" placeholder="Search projects, experience, certifications..." aria-label="Search profile">
-      </div>
-      <div class="profile_filter_chips" role="group" aria-label="Profile section filters">
-        <button type="button" class="profile_filter_chip active" data-filter="all">All</button>
-        <button type="button" class="profile_filter_chip" data-filter="projects">Projects</button>
-        <button type="button" class="profile_filter_chip" data-filter="experience">Experience</button>
-        <button type="button" class="profile_filter_chip" data-filter="certifications">Certifications</button>
-        <button type="button" class="profile_filter_chip" data-filter="achievements">Achievements</button>
-        <button type="button" class="profile_filter_chip" data-filter="publications">Publications</button>
-        <button type="button" class="profile_filter_chip" data-filter="extracurricular">Activities</button>
-      </div>`;
-    bio.insertAdjacentElement('afterend', tools);
-
-    const sectionMap = {
-      extracurricular:'view-extracurricular', certifications:'view-certifications',
-      experience:'view-experience', projects:'view-projects',
-      achievements:'view-achievements', publications:'view-publications'
-    };
-    const sectionByKey = {};
-    Object.keys(sectionMap).forEach(key=>{
-      const el=document.getElementById(sectionMap[key]);
-      if(el) sectionByKey[key]=el.closest('.profile_section');
-    });
-    const search=document.getElementById('profile-search');
-    let active='all';
-
-    function apply(){
-      const q=(search.value||'').trim().toLowerCase();
-      Object.keys(sectionByKey).forEach(key=>{
-        const section=sectionByKey[key];
-        const container=section.querySelector('[id^="view-"]');
-        const cards=container ? Array.from(container.querySelectorAll('.list_item_card')) : [];
-        const matchesSection=!q || section.textContent.toLowerCase().includes(q);
-        const categoryMatch=active==='all' || active===key;
-        section.style.display=categoryMatch && matchesSection ? '' : 'none';
-        if(container && cards.length){
-          let visible=0;
-          cards.forEach(card=>{
-            const match=!q || card.textContent.toLowerCase().includes(q);
-            card.style.display=match?'':'none';
-            if(match) visible++;
-          });
-          if(q && visible===0 && categoryMatch){
-            let empty=container.querySelector('.profile_no_results');
-            if(!empty){empty=document.createElement('div');empty.className='profile_no_results';empty.textContent='No matching items found.';container.appendChild(empty);}
-            empty.style.display='';
-          }else{
-            const empty=container.querySelector('.profile_no_results'); if(empty) empty.style.display='none';
-          }
-        }
-      });
-    }
-    tools.querySelectorAll('.profile_filter_chip').forEach(btn=>btn.addEventListener('click',()=>{
-      tools.querySelectorAll('.profile_filter_chip').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active'); active=btn.dataset.filter; apply();
-    }));
-    search.addEventListener('input',apply);
-  }
-
-  function setupEditTabs(){
-    const form=document.getElementById('profile-edit');
-    if(!form || form.dataset.tabsReady) return;
-    form.dataset.tabsReady='1';
-    form.classList.add('edit_shell');
-
-    const top=document.createElement('div');
-    top.className='edit_topbar';
-    top.innerHTML='<div><h1>Edit Profile</h1><p>Update your information step by step. Your data stays saved in this browser.</p></div>';
-    const oldH1=form.querySelector(':scope > h1'); if(oldH1) oldH1.remove();
-    form.insertBefore(top,form.firstChild);
-
-    const tabBar=document.createElement('div'); tabBar.className='edit_tabs';
-    const groups={basic:'Basic',contact:'Contact',academic:'Academic',about:'About',visibility:'Visibility',extracurricular:'Activities',certifications:'Certifications',experience:'Experience',projects:'Projects',achievements:'Achievements',publications:'Publications',links:'Links'};
-    Object.entries(groups).forEach(([key,label])=>{
-      const b=document.createElement('button'); b.type='button'; b.className='edit_tab'; b.dataset.group=key; b.textContent=label; tabBar.appendChild(b);
-    });
-    form.insertBefore(tabBar,form.children[1]);
-
-    const headingMap={
-      'BASIC INFO':'basic','CONTACT':'contact','ACADEMIC':'academic','ABOUT':'about',
-      'PROFILE VISIBILITY':'visibility','EXTRACURRICULAR / CLUB ACTIVITIES':'extracurricular',
-      'CERTIFICATIONS':'certifications','EXPERIENCE':'experience','PROJECTS':'projects',
-      'ACHIEVEMENTS':'achievements','PUBLICATIONS (IF ANY)':'publications','LINKS':'links'
-    };
-    let current=null, groupNodes={};
-    Array.from(form.children).forEach(node=>{
-      if(node===top || node===tabBar || node.classList.contains('edit_actions')) return;
-      if(node.classList.contains('eyebrow-line')){
-        const key=headingMap[node.textContent.trim()];
-        if(key){current=key; groupNodes[key]=groupNodes[key]||[]; groupNodes[key].push(node);}
-      }else if(current){
-        groupNodes[current].push(node);
-      }
-    });
-    Object.keys(groupNodes).forEach(key=>groupNodes[key].forEach(n=>n.classList.add('edit_group')));
-
-    function show(key){
-      Object.keys(groupNodes).forEach(k=>groupNodes[k].forEach(n=>n.style.display=k===key?'':'none'));
-      tabBar.querySelectorAll('.edit_tab').forEach(b=>b.classList.toggle('active',b.dataset.group===key));
-    }
-    tabBar.querySelectorAll('.edit_tab').forEach(b=>b.addEventListener('click',()=>show(b.dataset.group)));
-    show('basic');
-  }
-
-  window.downloadProfilePDF=function(){
-    const source=document.getElementById('profile-view');
-    if(!source) return;
-    const popup=window.open('','_blank','width=1000,height=900');
-    if(!popup){window.print();return;}
-    const styles=Array.from(document.querySelectorAll('link[rel="stylesheet"],style')).map(el=>el.outerHTML).join('\n');
-    popup.document.open();
-    popup.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>SEU Circle Profile</title>${styles}<style>@page{size:A4;margin:12mm}body{background:#fff!important}.profile_tools,.hero_actions,.sidebar{display:none!important}.app-shell{display:block!important}.main-content{width:100%!important}.main-content>section{padding-top:0!important}.main-content>.container{padding:0!important;max-width:none!important}.profile_header,.profile_bio_highlight,.profile_section{break-inside:avoid;box-shadow:none!important}</style></head><body><main class="main-content"><section><div class="container">${source.innerHTML}</div></section></main></body></html>`);
-    popup.document.close();
-    popup.onload=function(){setTimeout(()=>{popup.focus();popup.print();},450);};
-  };
-
-  const originalEnterEdit=window.enterEdit;
-  window.enterEdit=function(){
-    if(typeof originalEnterEdit==='function') originalEnterEdit();
-    setupEditTabs();
-    const form=document.getElementById('profile-edit'); if(form) form.scrollIntoView({behavior:'smooth',block:'start'});
-  };
-
-  const originalCancelEdit=window.cancelEdit;
-  window.cancelEdit=function(){
-    if(typeof originalCancelEdit==='function') originalCancelEdit();
-    const form=document.getElementById('profile-edit'); if(form) window.scrollTo({top:0,behavior:'smooth'});
-  };
-
-  function patchPDFButton(){
-    document.querySelectorAll('.hero_actions .pill-btn').forEach(btn=>{
-      if(btn.textContent.includes('Download')){
-        btn.innerHTML='<span>↓</span> Save / Download PDF';
-        btn.onclick=function(){downloadProfilePDF();};
-      }
-    });
-  }
-
-  document.addEventListener('DOMContentLoaded',()=>{
-    addProfileTools();
-    setupEditTabs();
-    patchPDFButton();
-  });
-  if(document.readyState!=='loading'){
-    addProfileTools(); setupEditTabs(); patchPDFButton();
-  }
-})();
-</script>
-
-
 </body>
 </html>

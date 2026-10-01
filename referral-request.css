@@ -1,10 +1,8 @@
-/* =========================================
-   REFERRAL REQUEST PAGE
-   Navy / Blue Theme
-   ========================================= */
-
-
-/* ---------- Top Navigation ---------- */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
 
 .sitenav {
   background: #17384d;
@@ -33,6 +31,7 @@
   padding-top: 40px;
   background: #f4f8fb;
   color: #17384d;
+    flex: 1;
 }
 
 
@@ -44,7 +43,7 @@
   position: absolute;
   border-radius: 50%;
   pointer-events: none;
-  z-index: 0;
+ 
 }
 
 .refsection::before {
