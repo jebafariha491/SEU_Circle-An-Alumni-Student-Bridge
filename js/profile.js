@@ -4,40 +4,93 @@ const defaultProfile = {
   location: "Dhaka, Bangladesh",
   email: "maliha@example.com",
   phone: "+880 1XXXXXXXXX",
-  about:"I am a passionate frontend developer interested in creating clean, responsive and user-friendly web experiences. I enjoy learning new technologies and building practical projects.",
+
+  about:
+    "I am a Computer Science & Engineering graduate from Southeast University and a passionate Frontend Developer with a strong interest in creating clean, responsive, and user-friendly web experiences. I enjoy turning ideas and designs into functional digital products while continuously exploring new technologies and improving my development skills. I am also interested in UI/UX, modern web technologies, and building practical solutions that provide a smooth user experience. I believe in continuous learning, collaboration, and growing through real-world projects and challenges.",
+
   university: "Southeast University",
   department: "Computer Science & Engineering",
   degree: "B.Sc. in CSE",
   graduation: "2025",
+
   company: "Optimizely BD",
   designation: "Frontend Developer",
   careerStart: "2025",
+
   skills: "HTML, CSS, JavaScript, React",
   interests: "Web Development, UI/UX, Technology",
+
   linkedin: "",
   github: "",
   portfolio: ""
 };
 
+
+/* =========================================
+   GET SAVED PROFILE
+========================================= */
+
 const savedProfile =
   localStorage.getItem("profileData");
 
-const profile =
+let profile =
   savedProfile
     ? JSON.parse(savedProfile)
-    : defaultProfile;
+    : { ...defaultProfile };
 
-document.getElementById("profileName").textContent = profile.fullName;
-document.getElementById("profileHeadline").textContent = profile.headline;
-document.getElementById("profileLocation").textContent = profile.location;
-document.getElementById("profileUniversity").textContent = profile.university + " · Alumni";
+
+/* =========================================
+   UPDATE OLD DEFAULT ABOUT TEXT
+   Only changes the old default text.
+   User-written custom text will stay safe.
+========================================= */
+
+const oldAbout =
+  "I am a passionate frontend developer interested in creating clean, responsive and user-friendly web experiences. I enjoy learning new technologies and building practical projects.";
+
+if (
+  profile.about === oldAbout ||
+  !profile.about
+) {
+  profile.about = defaultProfile.about;
+
+  localStorage.setItem(
+    "profileData",
+    JSON.stringify(profile)
+  );
+}
+
+
+/* =========================================
+   BASIC PROFILE INFORMATION
+========================================= */
+
+document.getElementById("profileName").textContent =
+  profile.fullName;
+
+document.getElementById("profileHeadline").textContent =
+  profile.headline;
+
+document.getElementById("profileLocation").textContent =
+  profile.location;
+
+document.getElementById("profileUniversity").textContent =
+  profile.university + " · Alumni";
+
+
+/* =========================================
+   CREATE INITIALS
+========================================= */
 
 function createInitials(name) {
 
-  const words = name.trim().split(/\s+/);
+  const words =
+    name.trim().split(/\s+/);
 
   if (words.length === 1) {
-    return words[0].substring(0, 2).toUpperCase();
+    return words[0]
+      .substring(0, 2)
+      .toUpperCase();
   }
 
   return (
@@ -46,23 +99,82 @@ function createInitials(name) {
   ).toUpperCase();
 }
 
-document.getElementById("profileAvatar").textContent =createInitials(profile.fullName);
-document.getElementById("profileAbout").textContent = profile.about;
-document.getElementById("profileEmail").textContent = profile.email || "—";
-document.getElementById("profilePhone").textContent = profile.phone || "—";
-document.getElementById("profileContactLocation").textContent = profile.location || "—";
-document.getElementById("educationDegree").textContent = profile.degree;
-document.getElementById("educationUniversity").textContent = profile.university;
-document.getElementById("educationDepartment").textContent =profile.department;
-document.getElementById("educationGraduation").textContent =profile.graduation;
-document.getElementById("careerDesignation").textContent = profile.designation;
-document.getElementById("careerCompany").textContent =profile.company;
-document.getElementById("careerStart").textContent = profile.careerStart + " → Present";
-document.getElementById("timelineCurrentYear").textContent = profile.careerStart + " → Present";
-document.getElementById("timelineCurrentTitle").textContent =profile.designation;
-document.getElementById("timelineCurrentCompany").textContent =profile.company;
-document.getElementById("timelineEducationDegree").textContent =profile.degree;
-document.getElementById("timelineEducationUniversity").textContent =profile.university;
+
+document.getElementById("profileAvatar").textContent =
+  createInitials(profile.fullName);
+
+
+/* =========================================
+   ABOUT & CONTACT
+========================================= */
+
+document.getElementById("profileAbout").textContent =
+  profile.about;
+
+document.getElementById("profileEmail").textContent =
+  profile.email || "—";
+
+document.getElementById("profilePhone").textContent =
+  profile.phone || "—";
+
+document.getElementById("profileContactLocation").textContent =
+  profile.location || "—";
+
+
+/* =========================================
+   EDUCATION
+========================================= */
+
+document.getElementById("educationDegree").textContent =
+  profile.degree;
+
+document.getElementById("educationUniversity").textContent =
+  profile.university;
+
+document.getElementById("educationDepartment").textContent =
+  profile.department;
+
+document.getElementById("educationGraduation").textContent =
+  profile.graduation;
+
+
+/* =========================================
+   CURRENT CAREER
+========================================= */
+
+document.getElementById("careerDesignation").textContent =
+  profile.designation;
+
+document.getElementById("careerCompany").textContent =
+  profile.company;
+
+document.getElementById("careerStart").textContent =
+  profile.careerStart + " → Present";
+
+
+/* =========================================
+   CAREER TIMELINE
+========================================= */
+
+document.getElementById("timelineCurrentYear").textContent =
+  profile.careerStart + " → Present";
+
+document.getElementById("timelineCurrentTitle").textContent =
+  profile.designation;
+
+document.getElementById("timelineCurrentCompany").textContent =
+  profile.company;
+
+document.getElementById("timelineEducationDegree").textContent =
+  profile.degree;
+
+document.getElementById("timelineEducationUniversity").textContent =
+  profile.university;
+
+
+/* =========================================
+   RENDER SKILLS / INTERESTS
+========================================= */
 
 function renderTags(containerId, text) {
 
@@ -89,8 +201,8 @@ function renderTags(containerId, text) {
     container.appendChild(tag);
 
   });
-
 }
+
 
 renderTags(
   "profileSkills",
@@ -103,33 +215,54 @@ renderTags(
 );
 
 
+/* =========================================
+   PROFESSIONAL LINKS
+========================================= */
+
 function setupLink(id, url) {
+
   const link =
     document.getElementById(id);
 
+  if (!link) return;
+
   if (url && url.trim() !== "") {
+
     link.href = url;
+
     link.style.display = "flex";
+
   } else {
+
     link.style.display = "none";
   }
 }
+
+
 setupLink(
   "linkedinLink",
   profile.linkedin
 );
+
 setupLink(
   "githubLink",
   profile.github
 );
+
 setupLink(
   "portfolioLink",
   profile.portfolio
 );
 
+
+/* =========================================
+   PROFILE COMPLETION
+========================================= */
+
 function calculateCompletion() {
 
   const fields = [
+
     profile.fullName,
     profile.headline,
     profile.location,
@@ -147,12 +280,14 @@ function calculateCompletion() {
     profile.linkedin,
     profile.github,
     profile.portfolio
+
   ];
 
   const completed =
     fields.filter(
       field =>
-        field && field.trim() !== ""
+        field &&
+        field.trim() !== ""
     ).length;
 
   const percentage =
@@ -162,12 +297,14 @@ function calculateCompletion() {
 
   document.getElementById(
     "completionPercent"
-  ).textContent = percentage + "%";
+  ).textContent =
+    percentage + "%";
 
   document.getElementById(
     "completionFill"
-  ).style.width = percentage + "%";
-
+  ).style.width =
+    percentage + "%";
 }
+
 
 calculateCompletion();

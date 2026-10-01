@@ -80,6 +80,11 @@ function handleAuthSubmit() {
       return;
     }
 
+    // Save the dummy login state so goDashboard()/logout() (in script.js)
+    // know who's "logged in" and which dashboard to send them to.
+    localStorage.setItem('seu_loggedIn', 'true');
+    localStorage.setItem('seu_role', selectedRole);
+
     if (selectedRole === "student") {
       window.location.href =
         "student-dashboard.html";
@@ -174,6 +179,11 @@ function handleAuthSubmit() {
         .focus();
       return;
     }
+
+    // Same as login — save the dummy login state before redirecting,
+    // so signing up also counts as being "logged in".
+    localStorage.setItem('seu_loggedIn', 'true');
+    localStorage.setItem('seu_role', selectedRole);
 
     if (selectedRole === "student") {
       window.location.href =

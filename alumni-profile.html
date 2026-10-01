@@ -5,172 +5,239 @@
 </head>
 
 <body>
-
+  <!-- NAVBAR -->
   <nav class="navbar">
+
     <div class="brand">
       <h1>SEU Circle</h1>
     </div>
 
     <div class="nav-links">
-      <button onclick="location.href='alumni-dashboard.html'"> Dashboard </button>
-      <button class="active"> My Profile </button>
-      <button onclick="location.href='job-board.html'">Job Board </button>
+  <!-- <a href="#" onclick="goDashboard();return false;"><span class="nav_icon">⌂</span> <span>Dashboard</span></a>    -->    
+      <button class="active">My Profile</button>
+      <button onclick="history.back();return false;" >Back</button>
     </div>
   </nav>
 
-
+  <!-- MAIN -->
   <main class="profile-container">
-    <section class="profile-card">
 
-      <div class="profile-intro">
-        <div class="avatar" id="profileAvatar">MR </div>
-
-        <div class="profile-basic-left">
-          <h2 id="profileName"> Maliha Rahman</h2>
-          <p class="headline" id="profileHeadline" > Frontend Developer </p>
-          <p class="university" id="profileUniversity" > Southeast University · Alumni</p>
-          <p class="location" id="profileLocation"> Dhaka, Bangladesh</p>
-        </div>
-
-        <div class="profile-basic-right">
-         <button class="edit-btn" onclick="location.href='edit-profile.html'"> ✎ Edit Profile</button>
+    <section class="profile-hero">
+      <div class="hero-main">
+        <div class="avatar" id="profileAvatar">MR</div>
+        <div class="hero-info">
+          <h1 id="profileName">Maliha Rahman</h1>
+          <p class="hero-headline" id="profileHeadline"> Frontend Developer</p>
+          <p class="hero-university" id="profileUniversity"> Southeast University · Alumni </p>
+          <p class="hero-location" id="profileLocation"> Dhaka, Bangladesh</p>
         </div>
       </div>
 
+      <div class="hero-actions">
+        <button class="edit-btn" onclick="location.href='edit-profile.html'"> ✎ Edit Profile</button>
+      </div>
 
-      <div class="completion-box">
-        <div class="completion-top">
-          <span> Profile Completion</span>
-          <strong id="completionPercent">84% </strong>
+      <div class="hero-skills" id="profileSkills"> </div>
+    </section>
+
+    <!--  TOP GRID  -->
+    <div class="top-grid">
+      <!-- ABOUT -->
+      <section class="profile-card about-card">
+        <div class="section-title">
+          <span class="title-line"></span>
+          <div>
+            <h2>About Me</h2>
+            <p>Professional introduction</p>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <p id="profileAbout"> I am a Computer Science & Engineering graduate from Southeast University and a passionate Frontend Developer
+            with a strong interest in creating clean, responsive and user-friendly web experiences.</p>
+        </div>
+      </section>
+
+      <!-- PROFILE COMPLETION -->
+      <section class="profile-card completion-card">
+        <div class="section-title">
+          <span class="title-line"></span>
+          <div> <h2>Profile Completion</h2>
+            <p>Keep your profile updated</p>
+          </div>
+        </div>
+
+        <div class="completion-number">
+          <strong id="completionPercent"> 0% </strong>
+          <span>Complete</span>
         </div>
 
         <div class="progress-bar">
-          <div class="progress-fill" id="completionFill"></div>
-        </div>
-      </div>
-    </section>
-
-    
-    <section class="profile-section">
-      <div class="section-heading">
-        <h2>About</h2>  
-      </div>
-
-      <div class="section-content">
-        <p id="profileAbout"> I am a passionate frontend developer interested in creating clean, responsive and user-friendly web experiences.</p>
-      </div>
-    </section>
-
-
-    <section class="profile-section">
-      <div class="section-heading">
-        <h2>Contact Information</h2>
-      </div>
-      <div class="info-grid">
-        <div class="info-item">
-          <span class="info-label">Email</span>
-          <span class="info-value" id="profileEmail"> — </span>
+          <div class="progress-fill" id="completionFill"> </div>
         </div>
 
-        <div class="info-item">
-          <span class="info-label">Phone </span>
-          <span class="info-value" id="profilePhone"> — </span>
+        <p class="completion-text"> Complete your profile to help other alumni connect with you.</p>
+      </section>
+    </div>
+
+    <!-- ================= INFORMATION GRID ================= -->
+    <div class="info-grid-layout">
+      <!-- CONTACT -->
+      <section class="profile-card">
+        <div class="section-title">
+          <span class="title-line"></span>
+          <div>
+            <h2>Contact Information</h2>
+            <p>How people can reach you</p>
+          </div>
         </div>
 
-        <div class="info-item">
-          <span class="info-label"> Location </span>
-          <span class="info-value" id="profileContactLocation"> Dhaka, Bangladesh </span>
+        <div class="contact-list">
+          <div class="contact-item">
+            <span class="contact-icon">@</span>
+            <div>
+              <small>Email</small>
+              <strong id="profileEmail">maliha148@gmail.com</strong>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon">☎</span>
+            <div>
+              <small>Phone</small>
+              <strong id="profilePhone">+8801956743287</strong>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <span class="contact-icon">⌖</span>
+            <div>
+              <small>Location</small>
+              <strong id="profileContactLocation">Dhaka, Bangladesh</strong>
+            </div>
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-
-    <section class="profile-section">
-      <div class="section-heading">
-        <h2>Education</h2>
-      </div>
-      <div class="education-card">
-        <div class="education-main">
-          <h3 id="educationDegree"> B.Sc. in CSE </h3>
-          <p id="educationUniversity">Southeast University </p>
-          <span id="educationDepartment">Computer Science & Engineering</span>
+      <!-- EDUCATION -->
+      <section class="profile-card">
+        <div class="section-title">
+          <span class="title-line"></span>
+          <div>
+            <h2>Education</h2>
+            <p>Academic background</p>
+          </div>
         </div>
-        <div class="education-year" id="educationGraduation">2025</div>
-      </div>
-    </section>
 
+        <div class="education-modern">
+          <div class="education-icon">EDU</div>
+          <div class="education-details">
+            <h3 id="educationDegree">B.Sc. in CSE</h3>
+            <p id="educationUniversity">Southeast University</p>
+            <span id="educationDepartment">Computer Science & Engineering</span>
+          </div>
 
-    <section class="profile-section">
-      <div class="section-heading">
-        <h2>Current Career</h2>
-      </div>
-      <div class="career-card">
+          <div class="education-year" id="educationGraduation">2025</div>
+        </div>
+      </section>
+    </div>
+
+    <!-- CAREER  -->
+    <section class="profile-card career-section">
+      <div class="section-title">
+        <span class="title-line"></span>
         <div>
+          <h2>Current Career</h2>
+          <p>Professional information</p>
+        </div>
+      </div>
+
+      <div class="career-modern">
+        <div class="career-marker">WORK</div>
+        <div class="career-details">
           <h3 id="careerDesignation">Frontend Developer</h3>
           <p id="careerCompany">Optimizely BD</p>
         </div>
-        <span id="careerStart"> 2025 → Present </span>
+        <div class="career-period" id="careerStart">2025 → Present</div>
       </div>
     </section>
 
-
-    <section class="profile-section">
-      <div class="section-heading">
-        <h2>Career Timeline</h2>
+    <!-- TIMELINE -->
+    <section class="profile-card timeline-section">
+      <div class="section-title">
+        <span class="title-line"></span>
+        <div>
+          <h2>Career Journey</h2>
+          <p>Education and professional milestones</p>
+        </div>
       </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-year" id="timelineCurrentYear"> 2025 → Present</div>
-          <div class="timeline-content">
-            <h3 id="timelineCurrentTitle">Frontend Developer</h3>
-            <p id="timelineCurrentCompany">Optimizely BD</p>
-          </div>
 
+      <div class="timeline">
+       <div class="timeline-row">
+          <div class="timeline-date" id="timelineCurrentYear"> 2025 → Present</div>
+          <div class="timeline-point"></div>
+          <div class="timeline-info">
+            <h3 id="timelineCurrentTitle"> Frontend Developer </h3>
+            <p id="timelineCurrentCompany"> Optimizely BD</p>
+            <span>Professional Experience</span>
+          </div>
         </div>
 
+        <!-- EDUCATION -->
 
-        <div class="timeline-item">
-          <div class="timeline-year">2021 → 2025</div>
-          <div class="timeline-content">
+        <div class="timeline-row">
+          <div class="timeline-date">2021 → 2025</div>
+          <div class="timeline-point"></div>
+          <div class="timeline-info">
             <h3 id="timelineEducationDegree">B.Sc. in CSE</h3>
             <p id="timelineEducationUniversity">Southeast University</p>
+            <span>Academic Journey</span>
           </div>
         </div>
       </div>
     </section>
 
 
-    <section class="profile-section">
-      <div class="section-heading">
-        <h2>Skills</h2>
-      </div>
-      <div class="skills" id="profileSkills"></div>
-    </section>
+    <!-- ================= BOTTOM GRID ================= -->
+
+    <div class="bottom-grid">
+      <!-- INTERESTS -->
+      <section class="profile-card">
+        <div class="section-title">
+          <span class="title-line"></span>
+          <div>
+            <h2>Interests</h2>
+            <p>Areas I enjoy exploring</p>
+          </div>
+        </div>
+
+        <div class="interest-tags" id="profileInterests"></div>
+      </section>
 
 
-    <section class="profile-section">
-      <div class="section-heading">
-        <h2>Interests</h2>
-      </div>
-      <div class="skills" id="profileInterests"> </div>
-    </section>
+      <!-- PROFESSIONAL LINKS -->
+      <section class="profile-card">
+        <div class="section-title">
+          <span class="title-line"></span>
+          <div>
+            <h2>Professional Links</h2>
+            <p>Connect with me online</p>
+          </div>
+        </div>
 
-
-    <section class="profile-section">
-      <div class="section-heading">
-        <h2>Professional Links</h2>
-      </div>
-      <div class="profile-links">
-        <a id="linkedinLink" href="#" target="_blank">LinkedIn <span>↗</span> </a>
-        <a id="githubLink" href="#" target="_blank" > GitHub<span>↗</span></a>
-        <a id="portfolioLink" href="#" target="_blank" > Portfolio<span>↗</span> </a>
-      </div>
-    </section>
+        <div class="professional-links">
+          <a id="linkedinLink" href="#" target="_blank"><span> LinkedIn </span><b>↗</b></a>
+          <a id="githubLink" href="#" target="_blank"><span>GitHub </span><b>↗</b></a>
+          <a id="portfolioLink" href="#" target="_blank"><span>Portfolio</span><b>↗</b></a>
+        </div>
+      </section>
+    </div>
   </main>
 
 
-  <footer> SEU Circle · An Alumni-Student Bridge </footer>
+  <footer>© 2026 SEU Circle · Alumni Community </footer>
 
+  <script src="js/script.js"></script> 
   <script src="js/profile.js"></script>
 
 </body>
